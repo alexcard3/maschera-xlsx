@@ -55,6 +55,16 @@ h3 { font-size: 19px; margin: 16px 0 8px; }
 .sotto { color: var(--tenue); margin: 0 0 20px; }
 .locale { display: inline-block; background: var(--ok-sfondo); color: var(--ok); font-weight: 600;
   border-radius: 999px; padding: 4px 14px; font-size: 16px; }
+/* avviso «versione in sviluppo»: un pulsante in testata che apre una nota */
+.sviluppo { position: relative; margin-left: auto; }   /* anche se va a capo resta a destra, e la nota non esce */
+.sviluppo-btn { font: inherit; font-size: 18px; line-height: 1; width: 38px; height: 38px; border-radius: 10px; cursor: pointer;
+  background: var(--attenzione-sfondo); color: var(--attenzione); border: 1px solid var(--giallo-bordo); }
+.sviluppo-btn:focus-visible { outline: 3px solid var(--accento); outline-offset: 2px; }
+.sviluppo-testo { position: absolute; right: 0; top: calc(100% + 10px); z-index: 20; width: min(360px, calc(100vw - 32px));
+  background: var(--carta); color: var(--testo); border: 1px solid var(--bordo); border-radius: 14px; padding: 14px 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .18); font-size: 16px; line-height: 1.5; }
+.sviluppo-testo p { margin: 0; }
+.sviluppo-testo a { color: var(--accento); font-weight: 700; }
 .schede { display: flex; gap: 8px; margin: 20px 0; flex-wrap: wrap; }
 .schede button, .fogli button { font: inherit; font-weight: 600; padding: 10px 20px; border-radius: 10px; cursor: pointer;
   border: 2px solid var(--bordo); background: var(--carta); color: var(--testo); }
@@ -163,6 +173,18 @@ button:disabled { opacity: .4; cursor: not-allowed; }
     </div>
     <span class="spazio"></span>
     <span class="locale">● Tutto su questo computer</span>
+    <!--tema:avviso-->
+    <div class="sviluppo">
+      <button type="button" class="sviluppo-btn" id="btn-sviluppo" aria-expanded="false" aria-controls="nota-sviluppo"
+        title="Versione in sviluppo" aria-label="Versione in sviluppo: leggi la nota">⚠</button>
+      <div class="sviluppo-testo" id="nota-sviluppo" role="note" hidden>
+        <p><b>Versione in sviluppo.</b> Le proposte automatiche non sono perfette e possono sbagliare: verifica sempre
+          il risultato prima di usarlo. Queste sono le prime versioni e il progetto è completamente <b>open source</b>.
+          Se ti è utile, <b>lascia una ⭐ alla repo</b> e contribuisci a migliorarlo:
+          <a href="https://github.com/alexcard3/maschera-xlsx" target="_blank" rel="noopener noreferrer">apri la repo su GitHub ↗</a></p>
+      </div>
+    </div>
+    <!--/tema:avviso-->
   </div>
 </header>
 <main>
@@ -368,6 +390,16 @@ button:disabled { opacity: .4; cursor: not-allowed; }
   }
   $("scheda-anon").onclick = function () { mostraScheda("anon"); };
   $("scheda-rip").onclick = function () { mostraScheda("rip"); };
+
+  // nota «versione in sviluppo» (manca se il tema la toglie): si apre col pulsante, si chiude con Esc o cliccando fuori
+  (function () {
+    var btn = $("btn-sviluppo"), nota = $("nota-sviluppo");
+    if (!btn || !nota) return;
+    function apri(si) { nota.hidden = !si; btn.setAttribute("aria-expanded", si ? "true" : "false"); }
+    btn.onclick = function (e) { e.stopPropagation(); apri(nota.hidden); };
+    document.addEventListener("click", function (e) { if (!nota.hidden && !nota.contains(e.target)) apri(false); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !nota.hidden) { apri(false); btn.focus(); } });
+  })();
 
   // ---------------------------------------------------------------- categorie
   function categoria(id) {

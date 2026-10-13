@@ -3,10 +3,12 @@
 Mette dentro la pagina la libreria SheetJS (sha256 controllato) e src/anonimizza_core.js, e aggiunge una
 Content-Security-Policy che vieta le connessioni di rete fatte dal codice (fetch, XMLHttpRequest, WebSocket:
 connect-src non e' concesso), il caricamento di script, stili, immagini e font da fuori, e l'invio di moduli. Non copre
-la navigazione (un link cliccato, un window.open): la pagina non ne fa, e non scrive mai HTML preso dal file (solo
-testo), quindi un foglio di calcolo non puo' iniettarne.
+la navigazione (un link cliccato, un window.open): la pagina ha un solo link, fisso, alla pagina del progetto nella nota
+«versione in sviluppo», che si apre solo se l'utente lo clicca e non porta dati; non scrive mai HTML preso dal file
+(solo testo), quindi un foglio di calcolo non puo' iniettarne.
 
-Con --tema si applica un aspetto proprio (logo, colori, font, testi): vedi docs/tema-esempio.json.
+Con --tema si applica un aspetto proprio (logo, colori, font, testi, nota «versione in sviluppo» si' o no): vedi
+docs/tema-esempio.json.
 
 Uso:  python build.py [--tema tema.json] [--uscita dist/Maschera.html]
 """
@@ -27,7 +29,8 @@ SEGNAPOSTO = ("<!--CSP-->", '<script src="../vendor/xlsx.full.min.js"></script>'
               '<script src="anonimizza_core.js"></script>', "/*tema:stile*/", "<!--tema:logo-->",
               "<!--tema:sovratitolo-->", "<!--versione-->")
 RE_NOTA = re.compile(r"<!--tema:nota-->(.*?)<!--/tema:nota-->", re.S)
-CHIAVI_TEMA = {"logo", "logo_alt", "sovratitolo", "nota", "font", "colori", "css"}
+RE_AVVISO = re.compile(r"[ \t]*<!--tema:avviso-->\n(.*?)[ \t]*<!--/tema:avviso-->\n", re.S)
+CHIAVI_TEMA = {"logo", "logo_alt", "sovratitolo", "nota", "font", "colori", "css", "avviso_sviluppo"}
 TIPI_LOGO = {".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".svg": "image/svg+xml"}
 RE_VARIABILE = re.compile(r"^--[a-z0-9-]+$")
 RE_COLORE = re.compile(r"^#([0-9a-fA-F]{3,4}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})$")
@@ -60,8 +63,9 @@ def applica_tema(pagina, tema, cartella):
     I testi entrano come testo (html.escape), mai come HTML; colori e font si controllano prima di entrare nello stile."""
     sconosciute = set(tema) - CHIAVI_TEMA
     assert not sconosciute, "tema: chiavi sconosciute: " + ", ".join(sorted(sconosciute))
-    for chiave in CHIAVI_TEMA - {"colori"}:
+    for chiave in CHIAVI_TEMA - {"colori", "avviso_sviluppo"}:
         assert chiave not in tema or isinstance(tema[chiave], str), "tema: «%s» deve essere un testo" % chiave
+    assert isinstance(tema.get("avviso_sviluppo", True), bool), "tema: «avviso_sviluppo» deve essere true o false"
     logo = ""
     if tema.get("logo"):
         file_logo = (cartella / tema["logo"]).resolve()
@@ -94,11 +98,14 @@ def applica_tema(pagina, tema, cartella):
     pagina = pagina.replace("/*tema:stile*/", ("/* tema */\n" + "\n".join(stile)) if stile else "")
     if tema.get("nota"):
         pagina = RE_NOTA.sub(lambda m: html.escape(tema["nota"]), pagina)
+    if tema.get("avviso_sviluppo") is False:
+        pagina = RE_AVVISO.sub("", pagina)
     return pagina
 
 
 def togli_segnaposto_tema(pagina):
     pagina = pagina.replace("<!--tema:logo-->", "").replace("<!--tema:sovratitolo-->", "").replace("/*tema:stile*/", "")
+    pagina = RE_AVVISO.sub(lambda m: m.group(1), pagina)
     return RE_NOTA.sub(lambda m: m.group(1), pagina)
 
 
@@ -123,6 +130,7 @@ def costruisci(tema=None, uscita=None):
     for s in SEGNAPOSTO:
         assert pagina.count(s) == 1, "segnaposto mancante o doppio: " + s
     assert len(RE_NOTA.findall(pagina)) == 1, "segnaposto mancante o doppio: tema:nota"
+    assert len(RE_AVVISO.findall(pagina)) == 1, "segnaposto mancante o doppio: tema:avviso"
 
     if tema:
         percorso = Path(tema).resolve()

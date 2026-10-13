@@ -110,7 +110,8 @@ files.
   - Names that are not marked stay in clear: the warning before download points out likely ones, but checking the
     preview is up to you.
   - Network blocking (Content-Security-Policy) stops the code from connecting. It does not stop a link you click
-    yourself; the page creates none.
+    yourself. The page has one fixed link, to this repository, in the ⚠ "version in development" note: it opens only
+    if you click it and carries no data.
 
 ## For developers
 
@@ -131,7 +132,8 @@ build.py                 builds dist/Maschera.html
 - **Develop.** Open `src/maschera.html` directly in the browser: it loads the logic and SheetJS from their files.
 - **Themes.** `python build.py --tema my-theme.json` applies your own logo, colours, font and texts, for example to
   give the tool your organisation's look. See [`docs/tema-esempio.json`](docs/tema-esempio.json). Texts are inserted
-  as text, never as HTML; colours and fonts are validated.
+  as text, never as HTML; colours and fonts are validated. `"avviso_sviluppo": false` removes the ⚠ note and its
+  link.
 - **Tests.** They use invented data only. The first two run on every push ([workflow](.github/workflows/ci.yml));
   the Excel ones need Windows with Excel.
 
@@ -260,7 +262,8 @@ corrispondenze precedenti. Così gli stessi nomi prendono gli stessi codici, e l
   - i nomi non marcati restano in chiaro: l'avviso prima dello scaricamento segnala i probabili, ma il controllo
     dell'anteprima tocca a te;
   - il blocco della rete (Content-Security-Policy) impedisce al codice di collegarsi. Non ferma un link cliccato da
-    te; la pagina non ne crea.
+    te. La pagina ha un solo link, fisso, a questo repository, nella nota ⚠ «versione in sviluppo»: si apre solo se
+    lo clicchi e non porta dati.
 
 ## Per chi sviluppa
 
@@ -281,7 +284,8 @@ build.py                 costruisce dist/Maschera.html
 - **Sviluppo.** Apri `src/maschera.html` direttamente nel browser: carica logica e SheetJS dai loro file.
 - **Temi.** `python build.py --tema mio-tema.json` applica logo, colori, font e testi propri, per esempio per dare
   allo strumento l'aspetto della tua organizzazione. Vedi [`docs/tema-esempio.json`](docs/tema-esempio.json). I testi
-  entrano come testo, mai come HTML; colori e font vengono controllati.
+  entrano come testo, mai come HTML; colori e font vengono controllati. `"avviso_sviluppo": false` toglie la nota ⚠ e
+  il suo link.
 - **Collaudi.** Usano solo dati inventati. I primi due girano a ogni push ([flusso](.github/workflows/ci.yml)); quelli
   con Excel richiedono Windows con Excel.
 
