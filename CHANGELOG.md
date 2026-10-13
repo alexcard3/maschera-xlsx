@@ -11,6 +11,11 @@ Le modifiche importanti sono elencate qui, in inglese.
   with the prediction committed before the run.
 - README: pointer to rizzo-pii for PDF and text documents.
 
+### Fixed
+- Single capitalised words under a header that is not about names (for example cities under «Città», ledger
+  reasons under «Causale») or in the header row are no longer proposed as names. Block layouts without a real
+  header keep the previous behaviour.
+
 ## [0.9.0] - 2026-10-13
 
 First public release (beta).

@@ -245,5 +245,21 @@ controlla("secondo file con corrispondenze caricate: stessi codici", secondo.cod
   controlla("e con gli stessi codici", JSON.stringify(res3.mappa.righe()) === JSON.stringify(righe2) && res3.report.nuoviCodici === 0);
 })();
 
+// --- parole singole: sotto «Citta'» o «Causale» sono etichette, sotto «Referente» sono nomi
+(function () {
+  console.log("\n== tabella con parole singole");
+  const wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet([
+    ["Ragione sociale", "Referente", "Città", "Importo", "Causale"],
+    ["Edilnord Srl", "Ruggeri", "Torino", 100, "Acquisti"],
+    ["Tecnofarm S.p.A.", "Galli", "Milano", 200, "Vendite"],
+    ["Omnia Servizi Srl", "Bertola", "Torino", 300, "Acquisti"],
+  ]), "Fornitori");
+  const lettura = A.leggi(XLSX.write(wb, { type: "buffer", bookType: "xlsx" }));
+  const proposti = A.testiDistinti(lettura).filter((t) => t.proposto).map((t) => t.testo).sort();
+  const attesi = ["Bertola", "Edilnord Srl", "Galli", "Omnia Servizi Srl", "Ruggeri", "Tecnofarm S.p.A."];
+  controlla("proposti i nomi, non citta' e causali", JSON.stringify(proposti) === JSON.stringify(attesi), proposti.join(", "));
+})();
+
 console.log("\n" + (falliti ? falliti + " controlli FALLITI" : "tutti i controlli superati"));
 process.exit(falliti ? 1 : 0);

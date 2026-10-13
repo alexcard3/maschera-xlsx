@@ -77,6 +77,15 @@ prediction forgot that Maschera's search is case-insensitive, so «Conti Davide�
 - The exploratory row was added **after** seeing the results: Maschera's one-word proposals are kept only if
   rizzo-pii also recognises them. It was not predicted and does not count for the criterion.
 
+## After the experiment: Maschera fixed
+
+The 23 false suggestions came from one rule: single capitalised words were proposed wherever they were. Since
+2026-10-13 a single word is no longer proposed when it sits under a header that is not about names («Città»,
+«Causale») or in the header row itself, unless it also appears under a name header («Referente», «Controparte»).
+Sheets without a real header (block layouts) behave as before. On this benchmark Maschera now gives **1 false
+suggestion instead of 23, with the same 53% coverage**. The fix was designed looking at this benchmark, so here it is
+not an independent test; a new test in `tests/collaudo.js` checks it, and it fails when the fix is removed.
+
 ## What an integration could look like
 
 - A **separate, opt-in build** of Maschera (for example `build.py --rizzo-pii`) whose Content-Security-Policy allows
@@ -175,6 +184,16 @@ la predizione dimenticava che la ricerca di Maschera ignora maiuscole e minuscol
   causali) vengono proposte come nomi. Nei file veri spesso si ripetono e vengono filtrate, qui no.
 - La riga esplorativa è stata aggiunta **dopo** aver visto i risultati: le proposte di Maschera di una sola parola
   restano solo se le riconosce anche rizzo-pii. Non era prevista e non conta per il criterio.
+
+## Dopo l'esperimento: Maschera corretta
+
+I 23 falsi suggerimenti venivano da una sola regola: le parole singole con la maiuscola venivano proposte ovunque
+fossero. Dal 13/10/2026 una parola singola non si propone più se sta sotto un'intestazione che non parla di nomi
+(«Città», «Causale») o nella riga d'intestazione, salvo che compaia anche sotto un'intestazione di nomi
+(«Referente», «Controparte»). I fogli senza una vera intestazione (prospetti a blocchi) funzionano come prima. Su
+questo banco Maschera ora dà **1 falso suggerimento invece di 23, con la stessa copertura del 53%**. La correzione è
+stata pensata guardando questo banco, quindi qui non è una prova indipendente; la controlla un collaudo nuovo in
+`tests/collaudo.js`, che fallisce se si toglie la correzione.
 
 ## Come potrebbe essere un'integrazione
 

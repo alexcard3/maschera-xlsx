@@ -439,31 +439,59 @@
     return parole.every(function (p) { return (PAROLA_NOME.test(p) || CONNETTIVI.test(p)) && !PAROLE_COMUNI.test(p); });
   }
 
+  // Intestazioni di colonne che contengono nomi di persone o di aziende (non indirizzi, telefoni o codici).
+  var INTEST_NOMI = /(^|[^\p{L}])(nom|cognom|client|fornitor|ragione|social|societ|ditta|aziend|dipendent|intestat|inquilin|conduttor|locator|propriet|referent|responsabil|contatt|beneficiar|debitor|creditor|controparte)/iu;
+
   function testiDistinti(lettura) {
     var perChiave = new Map();
-    function conta(v, iF) {
+    // dove: «nomi» sotto un'intestazione di nomi, «altro» sotto un'altra intestazione o nella riga d'intestazione,
+    // «libero» senza intestazione (prospetti a blocchi, testi fuori dalle celle)
+    function conta(v, iF, dove) {
       if (typeof v !== "string") return;
       var t = v.trim().replace(/\s+/g, " ");
       if (!t || /^[\d\s.,:;\/%€$+()-]*$/.test(t)) return;
       var k = norm(t), x = perChiave.get(k);
-      if (!x) { x = { testo: t, volte: 0, perFoglio: {} }; perChiave.set(k, x); }
+      if (!x) { x = { testo: t, volte: 0, perFoglio: {}, dove: { nomi: 0, altro: 0, libero: 0 } }; perChiave.set(k, x); }
       x.volte++;
       x.perFoglio[iF] = (x.perFoglio[iF] || 0) + 1;
+      x.dove[dove]++;
+    }
+    // Una riga vale come intestazione di tabella solo se almeno due celle ne hanno le parole («Referente», «Citta'»,
+    // «Importo»): nei prospetti a blocchi la prima riga piena di testo e' fatta di unita' e cognomi, non di intestazioni.
+    function intestazioneVera(riga) {
+      return (riga || []).filter(function (v) {
+        if (typeof v !== "string") return false;
+        return INTEST_NOMI.test(v) || PAROLE_SUGGERITE.test(v) ||
+          v.split(/[\s\/.,:;()-]+/).some(function (p) { return p && PAROLE_COMUNI.test(p); });
+      }).length >= 2;
     }
     lettura.fogli.forEach(function (f, iF) {
-      f.righe.forEach(function (riga) { (riga || []).forEach(function (v) { conta(v, iF); }); });
+      var h = rigaIntestazione(f);
+      if (h >= 0 && !intestazioneVera(f.righe[h])) h = -1;
+      var intest = h >= 0 ? f.righe[h] || [] : [];
+      f.righe.forEach(function (riga, r) {
+        (riga || []).forEach(function (v, c) {
+          var nomeCol = intest[c] == null ? "" : valoreInTesto(intest[c]).trim();
+          conta(v, iF, h < 0 || r < h ? "libero" : r === h ? "altro" : !nomeCol ? "libero" :
+            INTEST_NOMI.test(nomeCol) ? "nomi" : "altro");
+        });
+      });
     });
     // i testi fuori dalle celle (commenti, intestazioni, caselle di testo) contano come un foglio a parte
-    (lettura.extra || []).forEach(function (x) { conta(x.testo, "fuori"); });
+    (lettura.extra || []).forEach(function (x) { conta(x.testo, "fuori", "libero"); });
     var out = [];
     perChiave.forEach(function (x) {
       // Un'etichetta si ripete dentro lo stesso foglio (es. «Risc» in ogni blocco); un nome compare una o due volte
       // per foglio, anche se il file ha molti fogli (un periodo per foglio). Un nome di piu' parole vale sempre.
       var maxFoglio = Math.max.apply(null, Object.keys(x.perFoglio).map(function (k) { return x.perFoglio[k]; }));
       var piuParole = /\s/.test(x.testo);
-      x.proposto = (maxFoglio <= 2 || piuParole) && x.testo.length >= 3 && x.testo.length <= 60 && formaDiNome(x.testo) &&
-        x.testo !== x.testo.toUpperCase();
+      // Una parola sola sotto un'intestazione che non parla di nomi («Citta'», «Causale») o in una riga
+      // d'intestazione e' quasi sempre un'etichetta: si propone solo se compare anche sotto un'intestazione di nomi.
+      var etichetta = !piuParole && x.dove.altro > 0 && x.dove.nomi === 0;
+      x.proposto = (maxFoglio <= 2 || piuParole) && !etichetta && x.testo.length >= 3 && x.testo.length <= 60 &&
+        formaDiNome(x.testo) && x.testo !== x.testo.toUpperCase();
       delete x.perFoglio;
+      delete x.dove;
       out.push(x);
     });
     out.sort(function (a, b) { return (b.proposto - a.proposto) || (a.volte - b.volte) || a.testo.localeCompare(b.testo, "it"); });
