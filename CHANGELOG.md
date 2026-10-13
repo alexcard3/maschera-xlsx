@@ -4,6 +4,13 @@ All notable changes are listed here. The format follows [Keep a Changelog](https
 and versions follow [Semantic Versioning](https://semver.org/).
 Le modifiche importanti sono elencate qui, in inglese.
 
+## [Unreleased]
+
+### Added
+- Experiment `experiments/rizzo-pii`: rizzo-pii as a local name-suggestion engine for Maschera, on invented data,
+  with the prediction committed before the run.
+- README: pointer to rizzo-pii for PDF and text documents.
+
 ## [0.9.0] - 2026-10-13
 
 First public release (beta).

@@ -1,0 +1,34 @@
+occorrenze di nomi: 59 (17 dentro una frase), celle di testo: 120
+modello: {"app_version":"2.0.0","model":"rizzo-pii-0.3B-v1.5.0","model_version":"1.5.0","device":"cpu"}
+tempo cella: 111 chiamate, 3.77 s, massimo 0.082 s
+tempo intestazione: 116 chiamate, 3.38 s, massimo 0.053 s
+tempo riga: 50 chiamate, 1.68 s, massimo 0.062 s
+
+| metodo | proposti | coperte | parziali | scoperte | in frase coperte | falsi suggerimenti | celle senza nomi toccate |
+|---|---|---|---|---|---|---|---|
+| Maschera | 44 | 31 (53%) | 1 | 27 | 7/17 | 23 | 28 |
+| rizzo-pii, cella | 47 | 54 (92%) | 3 | 2 | 17/17 | 5 | 4 |
+| rizzo-pii, intestazione | 42 | 53 (90%) | 3 | 3 | 16/17 | 1 | 1 |
+| rizzo-pii, riga | 42 | 49 (83%) | 8 | 2 | 16/17 | 0 | 0 |
+| Maschera + rizzo-pii intestazione | 73 | 59 (100%) | 0 | 0 | 17/17 | 24 | 29 |
+| Maschera + rizzo-pii cella | 73 | 58 (98%) | 0 | 1 | 17/17 | 24 | 28 |
+| (esplorativo) Maschera filtrata + rizzo-pii intestazione | 53 | 57 (97%) | 0 | 2 | 16/17 | 5 | 5 |
+
+| gruppo (occorrenze) | Maschera | rizzo-pii, cella | rizzo-pii, intestazione | rizzo-pii, riga | Maschera + rizzo-pii intestazione | Maschera + rizzo-pii cella | (esplorativo) Maschera filtrata + rizzo-pii intestazione |
+|---|---|---|---|---|---|---|---|
+| persona, iniziali maiuscole (16) | 9 +1p | 16 | 16 | 16 | 16 | 16 | 16 |
+| persona, tutto maiuscolo (2) | 0 | 2 | 2 | 2 | 2 | 2 | 2 |
+| persona, tutto minuscolo (3) | 1 | 3 | 3 | 3 | 3 | 3 | 3 |
+| persona, cognome prima o iniziale (2) | 2 | 1 +1p | 1 +1p | 1 +1p | 2 | 2 | 2 |
+| persona, solo nome o solo cognome (13) | 1 | 12 | 13 | 13 | 13 | 12 | 13 |
+| azienda, con forma societaria (10) | 10 | 10 | 10 | 7 +3p | 10 | 10 | 10 |
+| azienda, senza forma societaria (10) | 7 | 7 +2p | 5 +2p | 5 +3p | 10 | 10 | 8 |
+| azienda, tutto maiuscolo (3) | 1 | 3 | 3 | 2 +1p | 3 | 3 | 3 |
+
+falsi suggerimenti, Maschera: Accantonamenti · Alba · Apertura · Appunti · Asti · Biella · Bra · Causale · Cuneo · Ivrea · Leasing · Milano · Mondovì · Novara · Personale · Pinerolo · Quote · Resi · Rimborsi · Trasferte · Torino · Vendite · Acquisti
+falsi suggerimenti, rizzo-pii, cella: Asti · Alba · Rimborsi · Resi · Quota
+falsi suggerimenti, rizzo-pii, intestazione: NAPOLI
+falsi suggerimenti, rizzo-pii, riga: nessuno
+falsi suggerimenti, Maschera + rizzo-pii intestazione: Accantonamenti · Alba · Apertura · Appunti · Asti · Biella · Bra · Causale · Cuneo · Ivrea · Leasing · Milano · Mondovì · Novara · Personale · Pinerolo · Quote · Resi · Rimborsi · Trasferte · Torino · Vendite · Acquisti · NAPOLI
+falsi suggerimenti, Maschera + rizzo-pii cella: Accantonamenti · Alba · Apertura · Appunti · Asti · Biella · Bra · Causale · Cuneo · Ivrea · Leasing · Milano · Mondovì · Novara · Personale · Pinerolo · Quote · Resi · Rimborsi · Trasferte · Torino · Vendite · Acquisti · Quota
+falsi suggerimenti, (esplorativo) Maschera filtrata + rizzo-pii intestazione: Alba · Asti · Resi · Rimborsi · NAPOLI

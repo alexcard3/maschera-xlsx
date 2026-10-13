@@ -1,0 +1,2861 @@
+{
+ "modello": {
+  "app_version": "2.0.0",
+  "model": "rizzo-pii-0.3B-v1.5.0",
+  "model_version": "1.5.0",
+  "device": "cpu"
+ },
+ "varianti": {
+  "cella": {
+   "celle": [
+    {
+     "foglio": "Fornitori",
+     "cella": "A1",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "B1",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "C1",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "D1",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "E1",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "A2",
+     "entita": [
+      {
+       "label": "ORG",
+       "testo": "Edilnord Srl",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "B2",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "Marco Galli",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "C2",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "E2",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "A3",
+     "entita": [
+      {
+       "label": "ORG",
+       "testo": "Tecnofarm S.p.A.",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "B3",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "Giovanna Ferrero",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "C3",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "E3",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "Gianni Fabbri",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "A4",
+     "entita": [
+      {
+       "label": "ORG",
+       "testo": "Bianchi & Figli Snc",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "B4",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "PAOLO BIANCHI",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "C4",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "Asti",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "A5",
+     "entita": [
+      {
+       "label": "ORG",
+       "testo": "Studio Associato Rinaldi",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "B5",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "elena rinaldi",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "C5",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "E5",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "A6",
+     "entita": [
+      {
+       "label": "ORG",
+       "testo": "Alfa Logistica Srl",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "B6",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "Conti Davide",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "C6",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "E6",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "A7",
+     "entita": [
+      {
+       "label": "ORG",
+       "testo": "Mondo Verde Coop",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "B7",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "Sara Moretti",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "C7",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "E7",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "A8",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "F.lli Ruggeri",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "B8",
+     "entita": [
+      {
+       "label": "ORG",
+       "testo": "Ruggeri",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "C8",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "Alba",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "E8",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "Luca Ruggeri",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "A9",
+     "entita": [
+      {
+       "label": "ORG",
+       "testo": "Officina Meccanica",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "B9",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "Pautasso",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "C9",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "A10",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "B10",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "ANNA COLOMBO",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "C10",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "E10",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "A11",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "Fabio Serra",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "B11",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "fabio serra",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "C11",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "E11",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "Marta Gentile",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "A12",
+     "entita": [
+      {
+       "label": "ORG",
+       "testo": "Caseificio Valle Stura",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "B12",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "Bruno Giordano",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "C12",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "E12",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "A13",
+     "entita": [
+      {
+       "label": "ORG",
+       "testo": "Lumen Energia S.r.l.",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "B13",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "Chiara Fogliato",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "C13",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "E13",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "Chiara Fogliato",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "A1",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "B1",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "C1",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "D1",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "E1",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "B2",
+     "entita": [
+      {
+       "label": "ORG",
+       "testo": "Edilnord",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "C2",
+     "entita": [
+      {
+       "label": "ORG",
+       "testo": "Edilnord Srl",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "E2",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "B3",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "Marco Galli",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "C3",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "Marco Galli",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "E3",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "Rimborsi",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "B4",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "E4",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "B5",
+     "entita": [
+      {
+       "label": "ORG",
+       "testo": "Tecnofarm",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "C5",
+     "entita": [
+      {
+       "label": "ORG",
+       "testo": "TECNOFARM S.P.A.",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "E5",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "B6",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "E6",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "B7",
+     "entita": [
+      {
+       "label": "ORG",
+       "testo": "Bianchi & Figli",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "C7",
+     "entita": [
+      {
+       "label": "ORG",
+       "testo": "Bianchi & Figli Snc",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "E7",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "Resi",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "B8",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "Davide Conti",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "C8",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "conti davide",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "E8",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "B9",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "E9",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "B10",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "C10",
+     "entita": [
+      {
+       "label": "ORG",
+       "testo": "Lumen Energia S.r.l.",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "E10",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "B11",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "C11",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "E11",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "B12",
+     "entita": [
+      {
+       "label": "ORG",
+       "testo": "Quota",
+       "intera": true
+      },
+      {
+       "label": "ORG",
+       "testo": "associativa Confartigianato",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "C12",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "E12",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "B13",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "E13",
+     "entita": []
+    },
+    {
+     "foglio": "Personale",
+     "cella": "A1",
+     "entita": []
+    },
+    {
+     "foglio": "Personale",
+     "cella": "B1",
+     "entita": []
+    },
+    {
+     "foglio": "Personale",
+     "cella": "C1",
+     "entita": []
+    },
+    {
+     "foglio": "Personale",
+     "cella": "D1",
+     "entita": []
+    },
+    {
+     "foglio": "Personale",
+     "cella": "E1",
+     "entita": []
+    },
+    {
+     "foglio": "Personale",
+     "cella": "A2",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "ROSSI",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Personale",
+     "cella": "B2",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "MARIO",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Personale",
+     "cella": "C2",
+     "entita": []
+    },
+    {
+     "foglio": "Personale",
+     "cella": "E2",
+     "entita": []
+    },
+    {
+     "foglio": "Personale",
+     "cella": "A3",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "FERRARI",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Personale",
+     "cella": "B3",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "GIULIA",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Personale",
+     "cella": "C3",
+     "entita": []
+    },
+    {
+     "foglio": "Personale",
+     "cella": "A4",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "ESPOSITO",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Personale",
+     "cella": "B4",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "LUCA",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Personale",
+     "cella": "C4",
+     "entita": []
+    },
+    {
+     "foglio": "Personale",
+     "cella": "E4",
+     "entita": []
+    },
+    {
+     "foglio": "Personale",
+     "cella": "A5",
+     "entita": []
+    },
+    {
+     "foglio": "Personale",
+     "cella": "B5",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "FRANCESCA",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Personale",
+     "cella": "C5",
+     "entita": []
+    },
+    {
+     "foglio": "Personale",
+     "cella": "A6",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "MARINO",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Personale",
+     "cella": "B6",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "ANDREA",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Personale",
+     "cella": "C6",
+     "entita": []
+    },
+    {
+     "foglio": "Personale",
+     "cella": "E6",
+     "entita": []
+    },
+    {
+     "foglio": "Personale",
+     "cella": "A7",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "GRECO",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Personale",
+     "cella": "B7",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "SOFIA",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Personale",
+     "cella": "C7",
+     "entita": []
+    },
+    {
+     "foglio": "Appunti",
+     "cella": "A1",
+     "entita": []
+    },
+    {
+     "foglio": "Appunti",
+     "cella": "A2",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "Marco Galli",
+       "intera": true
+      },
+      {
+       "label": "FULLNAME",
+       "testo": "Sara Moretti",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Appunti",
+     "cella": "A3",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "Bruno Giordano",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Appunti",
+     "cella": "A4",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "Anna Colombo",
+       "intera": true
+      },
+      {
+       "label": "ORG",
+       "testo": "Omniatech",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Appunti",
+     "cella": "A5",
+     "entita": []
+    },
+    {
+     "foglio": "Appunti",
+     "cella": "A6",
+     "entita": []
+    }
+   ],
+   "chiamate": 111,
+   "secondi_totali": 3.77,
+   "secondi_max": 0.082
+  },
+  "intestazione": {
+   "celle": [
+    {
+     "foglio": "Fornitori",
+     "cella": "A1",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "B1",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "C1",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "D1",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "E1",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "A2",
+     "entita": [
+      {
+       "label": "ORG",
+       "testo": "Edilnord Srl",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "B2",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "Marco Galli",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "C2",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "E2",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "A3",
+     "entita": [
+      {
+       "label": "ORG",
+       "testo": "Tecnofarm S.p.A.",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "B3",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "Giovanna Ferrero",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "C3",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "E3",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "Gianni Fabbri",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "A4",
+     "entita": [
+      {
+       "label": "ORG",
+       "testo": "Bianchi & Figli Snc",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "B4",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "PAOLO BIANCHI",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "C4",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "A5",
+     "entita": [
+      {
+       "label": "ORG",
+       "testo": "Studio Associato Rinaldi",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "B5",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "elena rinaldi",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "C5",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "E5",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "A6",
+     "entita": [
+      {
+       "label": "ORG",
+       "testo": "Alfa Logistica Srl",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "B6",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "Conti Davide",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "C6",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "E6",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "A7",
+     "entita": [
+      {
+       "label": "ORG",
+       "testo": "Mondo Verde Coop",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "B7",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "Sara Moretti",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "C7",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "E7",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "A8",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "F.lli Ruggeri",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "B8",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "Ruggeri",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "C8",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "E8",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "Luca Ruggeri",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "A9",
+     "entita": [
+      {
+       "label": "ORG",
+       "testo": "Meccanica",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "B9",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "Pautasso",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "C9",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "A10",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "OMNIATECH",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "B10",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "ANNA COLOMBO",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "C10",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "E10",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "A11",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "Fabio Serra",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "B11",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "fabio serra",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "C11",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "E11",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "Marta Gentile",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "A12",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "B12",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "Bruno Giordano",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "C12",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "E12",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "A13",
+     "entita": [
+      {
+       "label": "ORG",
+       "testo": "Lumen Energia S.r.l.",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "B13",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "Chiara Fogliato",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "C13",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "E13",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "Chiara Fogliato",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "A1",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "B1",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "C1",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "D1",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "E1",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "B2",
+     "entita": [
+      {
+       "label": "ORG",
+       "testo": "Edilnord",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "C2",
+     "entita": [
+      {
+       "label": "ORG",
+       "testo": "Edilnord Srl",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "E2",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "B3",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "Marco Galli",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "C3",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "Marco Galli",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "E3",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "B4",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "E4",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "B5",
+     "entita": [
+      {
+       "label": "ORG",
+       "testo": "Tecnofarm",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "C5",
+     "entita": [
+      {
+       "label": "ORG",
+       "testo": "TECNOFARM S.P.A.",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "E5",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "B6",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "E6",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "B7",
+     "entita": [
+      {
+       "label": "ORG",
+       "testo": "Bianchi & Figli",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "C7",
+     "entita": [
+      {
+       "label": "ORG",
+       "testo": "Bianchi & Figli Snc",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "E7",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "B8",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "Davide Conti",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "C8",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "conti davide",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "E8",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "B9",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "E9",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "B10",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "C10",
+     "entita": [
+      {
+       "label": "ORG",
+       "testo": "Lumen Energia S.r.l.",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "E10",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "B11",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "C11",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "E11",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "B12",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "C12",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "E12",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "B13",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "E13",
+     "entita": []
+    },
+    {
+     "foglio": "Personale",
+     "cella": "A1",
+     "entita": []
+    },
+    {
+     "foglio": "Personale",
+     "cella": "B1",
+     "entita": []
+    },
+    {
+     "foglio": "Personale",
+     "cella": "C1",
+     "entita": []
+    },
+    {
+     "foglio": "Personale",
+     "cella": "D1",
+     "entita": []
+    },
+    {
+     "foglio": "Personale",
+     "cella": "E1",
+     "entita": []
+    },
+    {
+     "foglio": "Personale",
+     "cella": "A2",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "ROSSI",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Personale",
+     "cella": "B2",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "MARIO",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Personale",
+     "cella": "C2",
+     "entita": []
+    },
+    {
+     "foglio": "Personale",
+     "cella": "E2",
+     "entita": []
+    },
+    {
+     "foglio": "Personale",
+     "cella": "A3",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "FERRARI",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Personale",
+     "cella": "B3",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "GIULIA",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Personale",
+     "cella": "C3",
+     "entita": []
+    },
+    {
+     "foglio": "Personale",
+     "cella": "A4",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "ESPOSITO",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Personale",
+     "cella": "B4",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "LUCA",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Personale",
+     "cella": "C4",
+     "entita": []
+    },
+    {
+     "foglio": "Personale",
+     "cella": "E4",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "NAPOLI",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Personale",
+     "cella": "A5",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "RICCI",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Personale",
+     "cella": "B5",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "FRANCESCA",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Personale",
+     "cella": "C5",
+     "entita": []
+    },
+    {
+     "foglio": "Personale",
+     "cella": "A6",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "MARINO",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Personale",
+     "cella": "B6",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "ANDREA",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Personale",
+     "cella": "C6",
+     "entita": []
+    },
+    {
+     "foglio": "Personale",
+     "cella": "E6",
+     "entita": []
+    },
+    {
+     "foglio": "Personale",
+     "cella": "A7",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "GRECO",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Personale",
+     "cella": "B7",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "SOFIA",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Personale",
+     "cella": "C7",
+     "entita": []
+    },
+    {
+     "foglio": "Appunti",
+     "cella": "A1",
+     "entita": []
+    },
+    {
+     "foglio": "Appunti",
+     "cella": "A2",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "Marco Galli",
+       "intera": true
+      },
+      {
+       "label": "FULLNAME",
+       "testo": "Sara Moretti",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Appunti",
+     "cella": "A3",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "Bruno Giordano",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Appunti",
+     "cella": "A4",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "Anna Colombo",
+       "intera": true
+      },
+      {
+       "label": "ORG",
+       "testo": "Omniatech",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Appunti",
+     "cella": "A5",
+     "entita": []
+    },
+    {
+     "foglio": "Appunti",
+     "cella": "A6",
+     "entita": []
+    }
+   ],
+   "chiamate": 116,
+   "secondi_totali": 3.38,
+   "secondi_max": 0.053
+  },
+  "riga": {
+   "celle": [
+    {
+     "foglio": "Fornitori",
+     "cella": "A1",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "B1",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "C1",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "D1",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "E1",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "A2",
+     "entita": [
+      {
+       "label": "ORG",
+       "testo": "Edilnord Srl",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "B2",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "Marco Galli",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "C2",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "E2",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "A3",
+     "entita": [
+      {
+       "label": "ORG",
+       "testo": "Tecnofarm S.p.A",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "B3",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "Giovanna Ferrero",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "C3",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "E3",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "Gianni Fabbri",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "A4",
+     "entita": [
+      {
+       "label": "ORG",
+       "testo": "Bianchi & Figli Snc",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "B4",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "PAOLO BIANCHI",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "C4",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "A5",
+     "entita": [
+      {
+       "label": "ORG",
+       "testo": "Studio Associato Rinaldi",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "B5",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "elena rinaldi",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "C5",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "E5",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "A6",
+     "entita": [
+      {
+       "label": "ORG",
+       "testo": "Alfa Logistica Srl",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "B6",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "Conti Davide",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "C6",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "E6",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "A7",
+     "entita": [
+      {
+       "label": "ORG",
+       "testo": "Mondo Verde Coop",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "B7",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "Sara Moretti",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "C7",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "E7",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "A8",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "F.lli Ruggeri",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "B8",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "Ruggeri",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "C8",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "E8",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "Luca Ruggeri",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "A9",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "Officina",
+       "intera": true
+      },
+      {
+       "label": "FULLNAME",
+       "testo": "Pautasso",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "B9",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "Pautasso",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "C9",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "A10",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "B10",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "ANNA COLOMBO",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "C10",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "E10",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "A11",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "Fabio Serra",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "B11",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "fabio serra",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "C11",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "E11",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "Marta Gentile",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "A12",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "Valle Stura",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "B12",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "Bruno Giordano",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "C12",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "E12",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "A13",
+     "entita": [
+      {
+       "label": "ORG",
+       "testo": "Lumen Energia S.r.l",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "B13",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "Chiara Fogliato",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "C13",
+     "entita": []
+    },
+    {
+     "foglio": "Fornitori",
+     "cella": "E13",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "Chiara Fogliato",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "A1",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "B1",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "C1",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "D1",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "E1",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "B2",
+     "entita": [
+      {
+       "label": "ORG",
+       "testo": "Edilnord",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "C2",
+     "entita": [
+      {
+       "label": "ORG",
+       "testo": "Edilnord Srl",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "E2",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "B3",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "Marco Galli",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "C3",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "Marco Galli",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "E3",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "B4",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "E4",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "B5",
+     "entita": [
+      {
+       "label": "ORG",
+       "testo": "Tecnofarm",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "C5",
+     "entita": [
+      {
+       "label": "ORG",
+       "testo": "TECNOFARM S.P.A",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "E5",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "B6",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "E6",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "B7",
+     "entita": [
+      {
+       "label": "ORG",
+       "testo": "Bianchi & Figli",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "C7",
+     "entita": [
+      {
+       "label": "ORG",
+       "testo": "Bianchi & Figli Snc",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "E7",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "B8",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "Davide Conti",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "C8",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "conti davide",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "E8",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "B9",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "E9",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "B10",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "C10",
+     "entita": [
+      {
+       "label": "ORG",
+       "testo": "Lumen Energia S.r.l",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "E10",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "B11",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "C11",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "OMNIATECH",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "E11",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "B12",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "C12",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "E12",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "B13",
+     "entita": []
+    },
+    {
+     "foglio": "Movimenti",
+     "cella": "E13",
+     "entita": []
+    },
+    {
+     "foglio": "Personale",
+     "cella": "A1",
+     "entita": []
+    },
+    {
+     "foglio": "Personale",
+     "cella": "B1",
+     "entita": []
+    },
+    {
+     "foglio": "Personale",
+     "cella": "C1",
+     "entita": []
+    },
+    {
+     "foglio": "Personale",
+     "cella": "D1",
+     "entita": []
+    },
+    {
+     "foglio": "Personale",
+     "cella": "E1",
+     "entita": []
+    },
+    {
+     "foglio": "Personale",
+     "cella": "A2",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "ROSSI",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Personale",
+     "cella": "B2",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "MARIO",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Personale",
+     "cella": "C2",
+     "entita": []
+    },
+    {
+     "foglio": "Personale",
+     "cella": "E2",
+     "entita": []
+    },
+    {
+     "foglio": "Personale",
+     "cella": "A3",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "FERRARI",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Personale",
+     "cella": "B3",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "GIULIA",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Personale",
+     "cella": "C3",
+     "entita": []
+    },
+    {
+     "foglio": "Personale",
+     "cella": "A4",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "ESPOSITO",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Personale",
+     "cella": "B4",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "LUCA",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Personale",
+     "cella": "C4",
+     "entita": []
+    },
+    {
+     "foglio": "Personale",
+     "cella": "E4",
+     "entita": []
+    },
+    {
+     "foglio": "Personale",
+     "cella": "A5",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "RICCI",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Personale",
+     "cella": "B5",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "FRANCESCA",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Personale",
+     "cella": "C5",
+     "entita": []
+    },
+    {
+     "foglio": "Personale",
+     "cella": "A6",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "MARINO",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Personale",
+     "cella": "B6",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "ANDREA",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Personale",
+     "cella": "C6",
+     "entita": []
+    },
+    {
+     "foglio": "Personale",
+     "cella": "E6",
+     "entita": []
+    },
+    {
+     "foglio": "Personale",
+     "cella": "A7",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "GRECO",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Personale",
+     "cella": "B7",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "SOFIA",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Personale",
+     "cella": "C7",
+     "entita": []
+    },
+    {
+     "foglio": "Appunti",
+     "cella": "A1",
+     "entita": []
+    },
+    {
+     "foglio": "Appunti",
+     "cella": "A2",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "Marco Galli",
+       "intera": true
+      },
+      {
+       "label": "FULLNAME",
+       "testo": "Sara Moretti",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Appunti",
+     "cella": "A3",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "Bruno Giordano",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Appunti",
+     "cella": "A4",
+     "entita": [
+      {
+       "label": "FULLNAME",
+       "testo": "Anna Colombo",
+       "intera": true
+      },
+      {
+       "label": "ORG",
+       "testo": "Omniatech",
+       "intera": true
+      }
+     ]
+    },
+    {
+     "foglio": "Appunti",
+     "cella": "A5",
+     "entita": []
+    },
+    {
+     "foglio": "Appunti",
+     "cella": "A6",
+     "entita": []
+    }
+   ],
+   "chiamate": 50,
+   "secondi_totali": 1.68,
+   "secondi_max": 0.062
+  }
+ }
+}

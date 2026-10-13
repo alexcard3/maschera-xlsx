@@ -13,7 +13,9 @@ real names back. It is a single HTML file, with no installation, no macros, no p
 ![Maschera with an invented spreadsheet: names marked by category](docs/screenshot.png)
 
 **Spreadsheets only.** It works with Excel, LibreOffice and Google Sheets files saved as `.xlsx` or `.xlsm`; old
-`.xls` files and `.csv` keep the values only. Word and PDF files are not supported.
+`.xls` files and `.csv` keep the values only. Word and PDF files are not supported: for **PDF and text documents**
+use [rizzo-pii](https://github.com/Rizzo-AI-Academy/rizzo-pii), which recognises names with a local Italian model.
+An [experiment](experiments/rizzo-pii/RISULTATI.md) measures how the two could work together.
 
 **Status: 0.9, beta.** Tested with invented data (four automated test suites, two of them inside Excel) and on 103
 real spreadsheets: numbers and number formats unchanged, every output opens in Excel without repairs. Version 1.0
@@ -163,7 +165,9 @@ Maschera rimette i nomi veri. È un solo file HTML: niente installazione, niente
 connessione a internet.
 
 **Solo fogli di calcolo.** Funziona con i file Excel, LibreOffice e Google Fogli salvati in `.xlsx` o `.xlsm`; i
-vecchi `.xls` e i `.csv` escono con i soli valori. Word e PDF non sono gestiti.
+vecchi `.xls` e i `.csv` escono con i soli valori. Word e PDF non sono gestiti: per **PDF e documenti di testo**
+c'è [rizzo-pii](https://github.com/Rizzo-AI-Academy/rizzo-pii), che riconosce i nomi con un modello italiano in
+locale. Un [esperimento](experiments/rizzo-pii/RISULTATI.md) misura come potrebbero lavorare insieme.
 
 **Stato: 0.9, beta.** Collaudato con dati inventati (quattro serie di collaudi automatici, due dentro Excel) e su 103
 fogli di calcolo veri: numeri e formati numerici invariati, ogni file prodotto si apre in Excel senza riparazioni. La

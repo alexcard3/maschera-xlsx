@@ -93,6 +93,11 @@ const metodi = [
   ["Maschera + rizzo-pii intestazione", maschera.concat(daRizzo("intestazione"))],
   ["Maschera + rizzo-pii cella", maschera.concat(daRizzo("cella"))],
 ];
+// ESPLORATIVO, aggiunto dopo aver visto i risultati (non e' nella predizione): le proposte di Maschera fatte di una
+// sola parola restano solo se rizzo-pii (intestazione) le riconosce anche lui; le altre restano tutte.
+const confermati = new Set(daRizzo("intestazione").concat(daRizzo("cella")).map((t) => A.norm(t)));
+const filtrata = maschera.filter((t) => /\s/.test(t.trim()) || confermati.has(A.norm(t)));
+metodi.push(["(esplorativo) Maschera filtrata + rizzo-pii intestazione", filtrata.concat(daRizzo("intestazione"))]);
 const risultati = metodi.map(([n, v]) => valuta(n, v));
 
 const tot = occorrenze.length;
