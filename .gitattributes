@@ -1,0 +1,4 @@
+* text=auto eol=lf
+*.png binary
+# SheetJS is kept byte for byte: build.py checks its SHA-256
+vendor/xlsx.full.min.js -text

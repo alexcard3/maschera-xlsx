@@ -1,0 +1,14 @@
+# Build output · file costruiti
+dist/
+
+# Test output and real data must never be committed · uscite dei collaudi e dati veri: mai in git
+*.xlsx
+*.xlsm
+*.xls
+*.csv
+corrispondenze_*
+
+__pycache__/
+node_modules/
+.DS_Store
+Thumbs.db

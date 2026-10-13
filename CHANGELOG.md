@@ -1,0 +1,28 @@
+# Changelog
+
+All notable changes are listed here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
+and versions follow [Semantic Versioning](https://semver.org/).
+Le modifiche importanti sono elencate qui, in inglese.
+
+## [0.9.0] - 2026-10-13
+
+First public release (beta).
+
+### Added
+- Single-file HTML tool that runs offline in the browser, with a Content-Security-Policy that blocks network access
+  from the code.
+- Preview of every sheet, including hidden ones, with likely names of people and companies already marked.
+- Marking by category with clicks, mouse drag, whole rows and columns, keyboard, or names typed by hand.
+- Automatic rules for Italian tax codes, VAT numbers, IBANs, e-mails and phone numbers.
+- Anonymization inside the original `.xlsx` package: formatting, formulas, charts, pivots, comments, data
+  validation, print headers and number formats are kept. Author, Office user names, folder paths with a user name,
+  macros and printer settings are removed.
+- Final check before download: real values, personal paths and unreadable parts block the formatted output, with a
+  values-only fallback.
+- Restore of the real names in text answers and in spreadsheets modified by an AI assistant (rows, columns, new
+  sheets, comments, charts); codes written in a different form are reported.
+- Stable codes across files by loading previous correspondences.
+- Themes for `build.py`: logo, colours, font and texts.
+- Release workflow with SHA-256 checksums and build attestation.
+
+[0.9.0]: https://github.com/alexcard3/maschera-xlsx/releases/tag/v0.9.0

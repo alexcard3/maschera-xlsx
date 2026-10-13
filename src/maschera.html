@@ -1,0 +1,1159 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--CSP-->
+<title>Maschera · per fogli di calcolo</title>
+<style>
+:root {
+  --sfondo: #f6f5f1; --carta: #ffffff; --testo: #1d1d1b; --tenue: #5d5b55; --bordo: #d9d6cc; --griglia: #e4e1d8;
+  --accento: #1f5c8a; --accento-testo: #ffffff; --rosso: #1f5c8a; --titoli: #1f5c8a; --ok: #1e6b3a; --ok-sfondo: #e5f2e9;
+  --attenzione: #8a5a00; --attenzione-sfondo: #fdf3dc; --errore: #a1261b; --errore-sfondo: #fbe7e4;
+  --giallo: #fff1a8; --giallo-bordo: #b38f00; --cambiato: #e3f1e6;
+  --c0: #d6e7f8; --b0: #2b6cb0; --c1: #d9f0de; --b1: #2f7d45; --c2: #e8ddf6; --b2: #6b46a8; --c3: #fbe2cc; --b3: #b05c1c;
+  --c4: #d2eeec; --b4: #23807a; --c5: #f8d9e6; --b5: #a83564; --c6: #e6e4de; --b6: #6b675c; --c7: #ebeec9; --b7: #6e7520;
+  /* testata, sempre chiara: un tema (build.py --tema) cambia questi tre e i colori qui sopra */
+  --marchio: #1f5c8a; --marchio-2: #1f5c8a; --font: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --sfondo: #1b1b1a; --carta: #252523; --testo: #ecebe6; --tenue: #b0aea6; --bordo: #44423d; --griglia: #3a3935;
+    --accento: #6aa9da; --accento-testo: #10202c; --rosso: #4f8fc4; --titoli: #a9cdea; --ok: #7fcf98; --ok-sfondo: #1f3326;
+    --attenzione: #e8bc5c; --attenzione-sfondo: #3a2f17; --errore: #f19185; --errore-sfondo: #3d211d;
+    --giallo: #5a4b00; --giallo-bordo: #f0cf4a; --cambiato: #1f3326;
+    --c0: #1f3a55; --b0: #79b0e6; --c1: #1f3d29; --b1: #7fcf98; --c2: #352a4a; --b2: #b79be3; --c3: #4a3220; --b3: #eba26a;
+    --c4: #1d3d3c; --b4: #6fd0c8; --c5: #4a2535; --b5: #ec8cb3; --c6: #3a3935; --b6: #bdb8aa; --c7: #3a3d1f; --b7: #ccd56e;
+  }
+}
+:root[data-theme="dark"] {
+  --sfondo: #1b1b1a; --carta: #252523; --testo: #ecebe6; --tenue: #b0aea6; --bordo: #44423d; --griglia: #3a3935;
+  --accento: #6aa9da; --accento-testo: #10202c; --rosso: #4f8fc4; --titoli: #a9cdea; --ok: #7fcf98; --ok-sfondo: #1f3326;
+  --attenzione: #e8bc5c; --attenzione-sfondo: #3a2f17; --errore: #f19185; --errore-sfondo: #3d211d;
+  --giallo: #5a4b00; --giallo-bordo: #f0cf4a; --cambiato: #1f3326;
+  --c0: #1f3a55; --b0: #79b0e6; --c1: #1f3d29; --b1: #7fcf98; --c2: #352a4a; --b2: #b79be3; --c3: #4a3220; --b3: #eba26a;
+  --c4: #1d3d3c; --b4: #6fd0c8; --c5: #4a2535; --b5: #ec8cb3; --c6: #3a3935; --b6: #bdb8aa; --c7: #3a3d1f; --b7: #ccd56e;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--sfondo); color: var(--testo);
+  font: 18px/1.5 var(--font); }
+main { max-width: 1280px; margin: 0 auto; padding: 24px 16px 64px; }
+h1 { font-size: 30px; margin: 0; color: var(--marchio); letter-spacing: .01em; }
+h2 { font-size: 20px; margin: 0 0 12px; color: var(--titoli); text-transform: uppercase; letter-spacing: .04em; display: flex; align-items: center; }
+/* testata: sempre chiara, perche' un logo di solito e' pensato su fondo bianco */
+.testata { background: #ffffff; border-bottom: 4px solid var(--marchio-2); }
+.testata-in { max-width: 1280px; margin: 0 auto; padding: 14px 16px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+.testata .logo { height: 56px; width: auto; display: block; }
+.testata .divisore { width: 2px; align-self: stretch; background: #e4e1d8; }
+.testata .sovra { font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--marchio-2); }
+.testata .spazio { flex: 1; }
+.testata .sotto-titolo { font-size: 15px; color: #5d5b55; margin-top: -2px; }
+.piede { max-width: 1280px; margin: 0 auto; padding: 18px 16px 40px; color: var(--tenue); font-size: 14px;
+  border-top: 1px solid var(--bordo); display: flex; gap: 10px; align-items: center; }
+.punto { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--marchio-2); flex: none; }
+h3 { font-size: 19px; margin: 16px 0 8px; }
+.sotto { color: var(--tenue); margin: 0 0 20px; }
+.locale { display: inline-block; background: var(--ok-sfondo); color: var(--ok); font-weight: 600;
+  border-radius: 999px; padding: 4px 14px; font-size: 16px; }
+.schede { display: flex; gap: 8px; margin: 20px 0; flex-wrap: wrap; }
+.schede button, .fogli button { font: inherit; font-weight: 600; padding: 10px 20px; border-radius: 10px; cursor: pointer;
+  border: 2px solid var(--bordo); background: var(--carta); color: var(--testo); }
+.schede button[aria-selected="true"], .fogli button[aria-selected="true"] { border-color: var(--accento); color: var(--accento);
+  box-shadow: inset 0 -4px 0 var(--rosso); }
+.fogli { display: flex; gap: 6px; flex-wrap: wrap; margin: 10px 0; }
+.fogli button { font-size: 16px; padding: 6px 14px; }
+.carta { background: var(--carta); border: 1px solid var(--bordo); border-radius: 14px; padding: 20px; margin: 0 0 18px; }
+.passo { display: inline-flex; width: 34px; height: 34px; border-radius: 50%; background: var(--rosso); flex: none; color: #ffffff;
+  align-items: center; justify-content: center; font-size: 16px; font-weight: 800; margin-right: 12px; }
+.nota { color: var(--tenue); font-size: 16px; margin: 4px 0 12px; }
+.zona { border: 2px dashed var(--bordo); border-radius: 12px; padding: 22px; text-align: center; cursor: pointer; }
+.zona.sopra { border-color: var(--accento); background: var(--c0); }
+button.grande:hover { filter: brightness(1.15); }
+button.grande { font: inherit; font-size: 20px; font-weight: 700; padding: 14px 28px; border-radius: 12px; border: 0; letter-spacing: .02em;
+  background: var(--accento); color: var(--accento-testo); cursor: pointer; }
+button.normale { font: inherit; font-size: 17px; padding: 8px 16px; border-radius: 10px; cursor: pointer;
+  border: 2px solid var(--accento); background: var(--carta); color: var(--accento); font-weight: 600; }
+button.normale[aria-pressed="true"] { background: var(--accento); color: var(--accento-testo); }
+input[type=text], textarea { font: inherit; color: var(--testo); background: var(--carta);
+  border: 2px solid var(--bordo); border-radius: 8px; padding: 6px 10px; }
+textarea { width: 100%; min-height: 130px; font-family: Consolas, "Cascadia Mono", monospace; font-size: 16px; }
+input[type=checkbox] { width: 22px; height: 22px; vertical-align: middle; }
+.riga { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin: 10px 0; }
+.riga input[type=text] { flex: 1; min-width: 220px; }
+.spazio { flex: 1; }
+.avviso { border-radius: 10px; padding: 10px 14px; margin: 8px 0; }
+.avviso.ok { background: var(--ok-sfondo); color: var(--ok); }
+.avviso.att { background: var(--attenzione-sfondo); color: var(--attenzione); }
+.avviso.err { background: var(--errore-sfondo); color: var(--errore); }
+.opzioni label { display: block; margin: 6px 0; }
+details { margin: 12px 0; }
+summary { cursor: pointer; font-weight: 600; font-size: 17px; }
+ul.numeri { margin: 6px 0; padding-left: 22px; }
+[hidden] { display: none !important; }
+
+/* categorie */
+.categorie { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.cat { font: inherit; font-size: 17px; font-weight: 600; padding: 7px 14px; border-radius: 999px; cursor: pointer;
+  border: 2px solid transparent; color: var(--testo); }
+.cat[aria-pressed="true"] { border-width: 3px; box-shadow: 0 0 0 2px var(--carta) inset; }
+.cat .n { font-weight: 400; color: var(--tenue); margin-left: 4px; }
+.sigla { display: inline-block; font-size: .7em; font-weight: 800; letter-spacing: .04em; border-radius: 4px;
+  padding: 0 4px; margin-right: 5px; vertical-align: 1px; color: var(--carta); }
+
+/* griglia */
+.contenitore { overflow: auto; max-height: 70vh; border: 1px solid var(--bordo); border-radius: 10px; }
+table.griglia { border-collapse: separate; border-spacing: 0; font-size: var(--zoom, 17px); }
+.griglia th, .griglia td { border-right: 1px solid var(--griglia); border-bottom: 1px solid var(--griglia);
+  padding: .3em .55em; vertical-align: top; white-space: pre-wrap; max-width: 22em; overflow-wrap: anywhere; }
+.griglia thead th { position: sticky; top: 0; background: var(--sfondo); color: var(--tenue); z-index: 2;
+  font-weight: 600; text-align: center; cursor: pointer; user-select: none; min-width: 3em; }
+.griglia thead th:hover { color: var(--accento); background: var(--c0); }
+.griglia thead th.angolo { left: 0; z-index: 3; cursor: default; }
+.griglia tbody th { position: sticky; left: 0; background: var(--sfondo); color: var(--tenue); font-weight: 400;
+  text-align: right; z-index: 1; }
+.griglia tbody th[data-row] { cursor: pointer; user-select: none; }
+.griglia tbody th[data-row]:hover { color: var(--accento); background: var(--c0); }
+button:disabled { opacity: .4; cursor: not-allowed; }
+.griglia th[data-col]:focus-visible, .griglia th[data-row]:focus-visible { outline: 3px solid var(--accento); outline-offset: -3px; }
+.griglia tbody th.intest { font-weight: 700; color: var(--accento); }
+.griglia.trascina { user-select: none; }
+/* !important: la cella marcata ha il colore della categoria scritto nello stile della cella */
+.griglia td.sel { outline: 3px solid var(--accento) !important; outline-offset: -3px; background: var(--c0) !important; }
+.griglia td.t { cursor: pointer; }
+.griglia td.t:hover { outline: 2px solid var(--accento); outline-offset: -2px; }
+.griglia td.n { text-align: right; color: var(--tenue); }
+.griglia td.m { font-weight: 600; }
+.griglia td.p { box-shadow: inset 0 -3px 0 var(--bordo-cat); }
+.griglia td.g { background: var(--giallo) !important; box-shadow: inset 0 0 0 2px var(--giallo-bordo); }
+.griglia td.c { background: var(--cambiato); }
+.griglia.claude td { cursor: default; }
+
+/* elenco marcati e resti */
+.marcati .gruppo { margin: 8px 0; }
+.marcati .voce { display: inline-flex; align-items: center; gap: 4px; margin: 3px; padding: 3px 4px 3px 10px;
+  border-radius: 999px; font-size: 16px; }
+.marcati .voce button { font: inherit; font-size: 15px; border: 0; background: transparent; color: var(--testo);
+  cursor: pointer; padding: 0 6px; border-radius: 50%; }
+.resti { max-height: 320px; overflow-y: auto; border: 1px solid var(--bordo); border-radius: 10px; }
+.resti div { padding: 6px 12px; border-bottom: 1px solid var(--bordo); cursor: pointer; font-size: 16px; overflow-wrap: anywhere; }
+.resti div:hover { background: var(--c0); }
+.etichetta { font-size: 13px; font-weight: 700; border-radius: 6px; padding: 1px 7px; margin-left: 6px;
+  background: var(--attenzione-sfondo); color: var(--attenzione); }
+.dove { display: block; font-size: 14px; color: var(--tenue); }
+.fuori .cambiato { background: var(--cambiato); }
+.resti div.g { background: var(--giallo); box-shadow: inset 4px 0 0 var(--giallo-bordo); }
+
+/* finestra di avviso */
+.velo { position: fixed; inset: 0; background: rgba(0,0,0,.45); display: flex; align-items: center; justify-content: center;
+  padding: 16px; z-index: 10; }
+.finestra { background: var(--carta); border-radius: 14px; padding: 22px; max-width: 640px; width: 100%; max-height: 85vh; overflow: auto; }
+.finestra ul { padding-left: 22px; }
+.finestra li { overflow-wrap: anywhere; }
+/*tema:stile*/
+</style>
+</head>
+<body>
+<header class="testata">
+  <div class="testata-in">
+    <!--tema:logo-->
+    <div>
+      <!--tema:sovratitolo-->
+      <h1>Maschera</h1>
+      <div class="sotto-titolo">per fogli di calcolo</div>
+    </div>
+    <span class="spazio"></span>
+    <span class="locale">● Tutto su questo computer</span>
+  </div>
+</header>
+<main>
+  <p class="sotto">Il file non viene inviato da nessuna parte: la pagina funziona anche senza internet.</p>
+
+  <div class="schede" role="tablist">
+    <button role="tab" id="scheda-anon" aria-selected="true">1. Anonimizza</button>
+    <button role="tab" id="scheda-rip" aria-selected="false">2. Rimetti i nomi veri</button>
+  </div>
+
+  <!-- ============================================================ ANONIMIZZA -->
+  <section id="pannello-anon">
+    <div class="carta">
+      <h2><span class="passo">1</span>Il file Excel</h2>
+      <div class="zona" id="zona-excel" tabindex="0" role="button">Trascina qui il file Excel, oppure <u>clicca per sceglierlo</u><br>
+        <span class="nota">.xlsx, .xls, .xlsm, .csv</span></div>
+      <input type="file" id="file-excel" accept=".xlsx,.xls,.xlsm,.xlsb,.csv,.ods" hidden>
+      <div id="info-file"></div>
+      <details>
+        <summary>Hai già anonimizzato un file simile? Carica le sue corrispondenze</summary>
+        <p class="nota">I nomi già noti si marcano da soli, con la loro categoria e lo stesso codice di prima: Claude potrà confrontare i file tra loro.</p>
+        <input type="file" id="file-corr-anon" accept=".xlsx">
+        <div id="info-corr-anon"></div>
+      </details>
+    </div>
+
+    <div class="carta" id="carta-marca" hidden>
+      <h2><span class="passo">2</span>Segna i nomi</h2>
+      <p class="nota">Scegli la categoria, poi <b>clicca le celle</b> da nascondere; un secondo clic le toglie. <b>Trascina</b> col mouse per un gruppo di celle; clicca la <b>lettera in cima</b> per tutta la colonna (senza la riga d'intestazione, col numero in colore), il <b>numero a sinistra</b> per tutta la riga. Lo stesso testo viene marcato in tutto il file. I probabili nomi e gli autori dei commenti sono già marcati: controllali.</p>
+
+      <div class="categorie" id="categorie"></div>
+      <div class="riga">
+        <input type="text" id="nuova-cat" placeholder="Nuova categoria (es. Commessa)" style="flex:0 1 260px;min-width:180px">
+        <button class="normale" id="btn-nuova-cat">Aggiungi categoria</button>
+      </div>
+      <div class="riga">
+        <input type="text" id="nome-mano" placeholder="Aggiungi un nome a mano: viene cercato ovunque, anche dentro le frasi">
+        <button class="normale" id="btn-nome-mano">Aggiungi</button>
+      </div>
+
+      <div class="riga">
+        <button class="normale" id="vista-orig" aria-pressed="true">Originale</button>
+        <button class="normale" id="vista-claude" aria-pressed="false">Come lo vedrà Claude</button>
+        <span class="spazio"></span>
+        <input type="text" id="cerca" placeholder="Cerca nel foglio" style="flex:0 1 220px;min-width:160px">
+        <button class="normale" id="zoom-meno" aria-label="Testo più piccolo">A−</button>
+        <button class="normale" id="zoom-piu" aria-label="Testo più grande">A+</button>
+      </div>
+      <div class="fogli" id="schede-fogli"></div>
+      <div class="contenitore"><table class="griglia" id="griglia"></table></div>
+      <p class="nota" id="info-griglia"></p>
+
+      <details id="det-fuori" hidden>
+        <summary id="tit-fuori">Testi fuori dalle celle</summary>
+        <p class="nota">Commenti, intestazioni di stampa, caselle di testo, grafici, messaggi degli elenchi: non stanno nella griglia ma finiscono nel file. Se vedi un nome, clicca il testo: finisce nella casella «Aggiungi un nome a mano».</p>
+        <div class="resti fuori" id="lista-fuori"></div>
+      </details>
+      <details id="det-marcati" open>
+        <summary id="tit-marcati">Marcati</summary>
+        <div class="marcati" id="lista-marcati"></div>
+      </details>
+      <details>
+        <summary>Regole automatiche</summary>
+        <div class="opzioni">
+          <label><input type="checkbox" id="opt-iban" checked> IBAN</label>
+          <label><input type="checkbox" id="opt-cf" checked> Codici fiscali</label>
+          <label><input type="checkbox" id="opt-piva" checked> Partite IVA (salvate come numero: solo sotto un'intestazione o accanto a un'etichetta «P.IVA»)</label>
+          <label><input type="checkbox" id="opt-email" checked> Email</label>
+          <label><input type="checkbox" id="opt-tel" checked> Numeri di telefono</label>
+          <label><input type="checkbox" id="opt-fogli"> Rinomina i fogli in Foglio1, Foglio2… (se i nomi dei fogli dicono troppo)</label>
+        </div>
+      </details>
+      <p style="margin-top:18px"><button class="grande" id="btn-scarica">Anonimizza e scarica</button></p>
+      <p class="nota">Scarichi due file: l'Excel <b>anonimo</b>, da dare a Claude, e le <b>corrispondenze</b>, da tenere sul PC e mai dare a Claude. Quando Claude restituisce il file, anche modificato, vai su «2. Rimetti i nomi veri».</p>
+    </div>
+
+    <div class="carta" id="carta-esito" hidden>
+      <h2><span class="passo">3</span><span id="tit-esito">Fatto</span></h2>
+      <div class="avviso att" id="esito-superato" hidden>Hai cambiato le marcature dopo lo scaricamento: i file già scaricati non le contengono. Premi di nuovo «Anonimizza e scarica» e usa i file nuovi.</div>
+      <div id="esito"></div>
+      <h3>Testi rimasti in chiaro</h3>
+      <p class="nota">In cima quelli che potrebbero contenere un nome. Se vedi un nome sfuggito, clicca la riga: finisce nella casella «Aggiungi un nome a mano», dove lasci solo il nome.</p>
+      <div class="resti" id="resti"></div>
+      <div class="riga">
+        <button class="normale" id="btn-riscarica-anon">Scarica di nuovo l'Excel anonimo</button>
+        <button class="normale" id="btn-riscarica-corr">Scarica di nuovo le corrispondenze</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ RIPRISTINA -->
+  <section id="pannello-rip" hidden>
+    <div class="carta">
+      <h2><span class="passo">1</span>Il file delle corrispondenze</h2>
+      <p class="nota">Quello scaricato quando hai anonimizzato il file.</p>
+      <input type="file" id="file-corr-rip" accept=".xlsx">
+      <div id="info-corr-rip"></div>
+    </div>
+    <div class="carta">
+      <h2><span class="passo">2</span>La risposta di Claude</h2>
+      <p class="nota">Incolla il testo: i codici come CLIENTE_001 tornano i nomi veri.</p>
+      <textarea id="testo-rip" spellcheck="false"></textarea>
+      <p><button class="grande" id="btn-rip-testo">Rimetti i nomi</button></p>
+      <div id="esito-rip-testo"></div>
+      <textarea id="testo-ripristinato" readonly hidden></textarea>
+      <p><button class="normale" id="btn-copia" hidden>Copia il testo</button></p>
+    </div>
+    <div class="carta">
+      <h2><span class="passo">3</span>Oppure un Excel restituito da Claude</h2>
+      <p class="nota">Anche se Claude ha cambiato righe, colonne o fogli: ogni codice trovato torna il nome vero.</p>
+      <input type="file" id="file-rip-excel" accept=".xlsx,.xls,.csv">
+      <div id="esito-rip-excel"></div>
+    </div>
+  </section>
+</main>
+<footer class="piede"><span class="punto"></span><span><!--tema:nota-->Maschera è uno strumento open source, con licenza MIT.<!--/tema:nota--> I file non lasciano questo computer. Versione <!--versione-->.</span></footer>
+
+<div class="velo" id="velo" hidden>
+  <div class="finestra" role="dialog" aria-modal="true" aria-labelledby="tit-velo">
+    <h2 id="tit-velo">Possibili nomi non marcati</h2>
+    <p>Questi testi sembrano contenere nomi e resterebbero in chiaro. Ora sono <b>evidenziati in giallo</b>: nella griglia
+      (le schede dei fogli dicono quanti ce ne sono in ciascuno) e nell'elenco «Testi fuori dalle celle». Quelli nei nomi
+      dei fogli o oltre le righe mostrate si trovano con «Cerca», o si aggiungono a mano.</p>
+    <ul id="lista-velo"></ul>
+    <div class="riga">
+      <button class="grande" id="btn-controllo">Torno a controllare</button>
+      <button class="normale" id="btn-comunque">Scarica comunque</button>
+    </div>
+  </div>
+</div>
+
+<script src="../vendor/xlsx.full.min.js"></script>
+<script src="anonimizza_core.js"></script>
+<script>
+(function () {
+  "use strict";
+  var A = window.AnonCore;
+  var $ = function (id) { return document.getElementById(id); };
+  var MAX_RIGHE = 300, MAX_COLONNE = 200;
+  var CATEGORIE_BASE = [["PERSONA", "Persona"], ["INQUILINO", "Inquilino"], ["CLIENTE", "Cliente"], ["FORNITORE", "Fornitore"],
+    ["AZIENDA", "Azienda"], ["INDIRIZZO", "Indirizzo"], ["ALTRO", "Altro"]];
+
+  var stato = {
+    lettura: null, testi: [], corrAnon: null, corrRip: null, esito: null,
+    marcati: new Map(),          // norm(testo) -> {testo, cat}
+    esclusi: new Set(),          // norm(testo) tolti a mano: non si ripropongono e non danno avviso
+    categorie: [], catAttiva: "PERSONA",
+    foglio: 0, vista: "orig", zoom: 17, cerca: "",
+    gialliOrig: new Set(), gialliUscita: new Set(), mostraGialli: false,
+    ricercaCache: null
+  };
+
+  // ---------------------------------------------------------------- utilita'
+  function el(tag, attr, figli) {
+    var e = document.createElement(tag);
+    Object.keys(attr || {}).forEach(function (k) {
+      if (k === "testo") e.textContent = attr[k];
+      else if (k === "classe") e.className = attr[k];
+      else e.setAttribute(k, attr[k]);
+    });
+    (figli || []).forEach(function (f) { if (f != null) e.appendChild(typeof f === "string" ? document.createTextNode(f) : f); });
+    return e;
+  }
+  function avviso(tipo, testo) { return el("div", { classe: "avviso " + tipo, testo: testo }); }
+  function svuota(n) { while (n.firstChild) n.removeChild(n.firstChild); return n; }
+  function oggi() {
+    var d = new Date(), p = function (x) { return String(x).padStart(2, "0"); };
+    return d.getFullYear() + p(d.getMonth() + 1) + p(d.getDate()) + "_" + p(d.getHours()) + p(d.getMinutes()) + p(d.getSeconds());
+  }
+  function scarica(buf, nome) {
+    var b = new Blob([buf], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
+    var a = el("a", { href: URL.createObjectURL(b), download: nome });
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 2000);
+  }
+  function leggiFile(file, fatto) {
+    var r = new FileReader();
+    r.onload = function () { fatto(new Uint8Array(r.result)); };
+    r.onerror = function () { mostraErrore("Il browser non riesce a leggere il file: " + (r.error && r.error.message)); };
+    r.readAsArrayBuffer(file);
+  }
+  // Nessun errore silenzioso: qualunque guasto compare in pagina.
+  function mostraErrore(msg) {
+    var dove = !$("pannello-rip").hidden ? $("esito-rip-excel") : $("info-file");
+    dove.appendChild(avviso("err", "Qualcosa è andato storto: " + msg));
+  }
+  window.addEventListener("error", function (e) { mostraErrore(e.message); });
+  function mostra(v) {
+    if (v == null) return "";
+    if (v instanceof Date) return isNaN(v) ? "" : v.toLocaleDateString("it-IT");
+    if (typeof v === "number") return v.toLocaleString("it-IT", { maximumFractionDigits: 10 });
+    return String(v);
+  }
+  function eTesto(v) { return typeof v === "string" && v.trim() !== "" && !/^[\d\s.,:;\/%€$+()-]*$/.test(v); }
+
+  // ---------------------------------------------------------------- schede
+  function mostraScheda(quale) {
+    $("scheda-anon").setAttribute("aria-selected", quale === "anon");
+    $("scheda-rip").setAttribute("aria-selected", quale === "rip");
+    $("pannello-anon").hidden = quale !== "anon";
+    $("pannello-rip").hidden = quale !== "rip";
+  }
+  $("scheda-anon").onclick = function () { mostraScheda("anon"); };
+  $("scheda-rip").onclick = function () { mostraScheda("rip"); };
+
+  // ---------------------------------------------------------------- categorie
+  function categoria(id) {
+    for (var i = 0; i < stato.categorie.length; i++) if (stato.categorie[i].id === id) return stato.categorie[i];
+    return null;
+  }
+  function aggiungiCategoria(id, nome) {
+    id = A.prefissoDa(id, "ALTRO");
+    var c = categoria(id);
+    if (c) return c;
+    nome = nome || id.charAt(0) + id.slice(1).toLowerCase().replace(/_/g, " ");
+    c = { id: id, nome: nome, sigla: id.replace(/_/g, "").slice(0, 3), colore: stato.categorie.length % 8 };
+    stato.categorie.push(c);
+    return c;
+  }
+  CATEGORIE_BASE.forEach(function (x) { aggiungiCategoria(x[0], x[1]); });
+
+  function stileCat(e, c, pieno) {
+    e.style.background = "var(--c" + c.colore + ")";
+    e.style.borderColor = "var(--b" + c.colore + ")";
+    if (pieno) e.style.setProperty("--bordo-cat", "var(--b" + c.colore + ")");
+  }
+  function sigla(c) {
+    var s = el("span", { classe: "sigla", testo: c.sigla });
+    s.style.background = "var(--b" + c.colore + ")";
+    return s;
+  }
+
+  function disegnaCategorie() {
+    var box = svuota($("categorie")), conta = {};
+    stato.marcati.forEach(function (m) { conta[m.cat] = (conta[m.cat] || 0) + 1; });
+    stato.categorie.forEach(function (c) {
+      var b = el("button", { classe: "cat", "aria-pressed": String(c.id === stato.catAttiva) },
+        [sigla(c), c.nome, conta[c.id] ? el("span", { classe: "n", testo: "(" + conta[c.id] + ")" }) : null]);
+      stileCat(b, c);
+      b.onclick = function () { stato.catAttiva = c.id; disegnaCategorie(); };
+      box.appendChild(b);
+    });
+  }
+  $("btn-nuova-cat").onclick = function () {
+    var n = $("nuova-cat").value.trim();
+    if (!n) return;
+    var c = aggiungiCategoria(n, n.charAt(0).toUpperCase() + n.slice(1));
+    stato.catAttiva = c.id;
+    $("nuova-cat").value = "";
+    disegnaCategorie();
+  };
+
+  // ---------------------------------------------------------------- marcature
+  // Ogni cambiamento che tocca il risultato passa di qui: il file gia' preparato non vale piu', e i pulsanti
+  // «Scarica di nuovo» non devono dare quello vecchio.
+  // La scheda «Fatto» resta visibile (con l'elenco dei testi rimasti, che si sta usando), ma i pulsanti si spengono.
+  function invalida() {
+    stato.ricercaCache = null;
+    stato.esito = null;
+    if (stato.ultimo) {
+      stato.ultimo = null;
+      $("btn-riscarica-anon").disabled = $("btn-riscarica-corr").disabled = true;
+      $("esito-superato").hidden = false;
+    }
+  }
+  // Dopo l'avviso i testi da controllare restano in giallo: si ricalcolano a ogni cambiamento, cosi' spariscono
+  // man mano che si marcano.
+  function cambiato() {
+    invalida();
+    if (stato.mostraGialli && stato.lettura) possibiliNomi();
+    ridisegna();
+  }
+
+  function marca(testo, cat) {
+    var t = String(testo).trim(), k = A.norm(t);
+    if (!k) return;
+    stato.marcati.set(k, { testo: t, cat: cat });
+    stato.esclusi.delete(k);
+    stato.gialliOrig.delete(k);
+  }
+  // Tolto con un clic sulla singola cella: e' una scelta («non e' un nome») e l'avviso non lo ripropone.
+  // Tolto con un gesto di gruppo (colonna, riga, trascinamento): puo' essere un errore, e l'avviso lo ripropone.
+  function smarca(testo, gruppo) {
+    var k = A.norm(String(testo).trim());
+    stato.marcati.delete(k);
+    if (!gruppo) stato.esclusi.add(k);
+  }
+
+  function ricerca() {
+    if (stato.ricercaCache === null) {
+      var voci = [];
+      stato.marcati.forEach(function (m) { voci.push({ testo: m.testo, codice: m.cat }); });
+      stato.ricercaCache = A.ricerca(voci) || false;
+    }
+    return stato.ricercaCache;
+  }
+
+  function clickCella(r, c) {
+    if (stato.vista !== "orig") return;
+    var v = (stato.lettura.fogli[stato.foglio].righe[r] || [])[c];
+    if (!eTesto(v)) return;
+    var m = stato.marcati.get(A.norm(v.trim()));
+    if (m && m.cat === stato.catAttiva) smarca(v);
+    else marca(v, stato.catAttiva);
+    cambiato();
+  }
+
+  // Colonna, riga e gruppo di celle: se tutti i testi sono già marcati con la categoria scelta li toglie, altrimenti
+  // li marca tutti (come il clic su una cella).
+  function marcaGruppo(valori) {
+    if (!valori.length) return;
+    var tutti = valori.every(function (v) { var m = stato.marcati.get(A.norm(v)); return m && m.cat === stato.catAttiva; });
+    valori.forEach(function (v) { if (tutti) smarca(v, true); else marca(v, stato.catAttiva); });
+    cambiato();
+  }
+  function aggiungiValore(valori, v) { if (eTesto(v) && valori.indexOf(v.trim()) < 0) valori.push(v.trim()); }
+
+  function clickColonna(c) {
+    if (stato.vista !== "orig") return;
+    var f = stato.lettura.fogli[stato.foglio], h = A.rigaIntestazione(f), valori = [];
+    f.righe.forEach(function (riga, r) { if (r > h) aggiungiValore(valori, (riga || [])[c]); });
+    marcaGruppo(valori);
+  }
+
+  function clickRiga(r) {
+    if (stato.vista !== "orig") return;
+    var valori = [];
+    (stato.lettura.fogli[stato.foglio].righe[r] || []).forEach(function (v) { aggiungiValore(valori, v); });
+    marcaGruppo(valori);
+  }
+
+  // Rettangolo tra due celle, per righe del foglio (r) e colonne (c). Con «Cerca» attivo vale solo per le righe
+  // mostrate, così non si marca ciò che non si vede.
+  function righeArea(r1, r2) {
+    var mostrate = stato.righeMostrate || [], a = mostrate.indexOf(r1), b = mostrate.indexOf(r2);
+    if (a < 0 || b < 0) return [];
+    return mostrate.slice(Math.min(a, b), Math.max(a, b) + 1);
+  }
+  function clickArea(r1, c1, r2, c2) {
+    if (stato.vista !== "orig") return;
+    var righe = stato.lettura.fogli[stato.foglio].righe, valori = [];
+    var ca = Math.min(c1, c2), cb = Math.max(c1, c2);
+    righeArea(r1, r2).forEach(function (r) {
+      for (var c = ca; c <= cb; c++) aggiungiValore(valori, (righe[r] || [])[c]);
+    });
+    marcaGruppo(valori);
+  }
+
+  $("btn-nome-mano").onclick = function () {
+    var t = $("nome-mano").value.trim();
+    if (!t || !stato.lettura) return;
+    marca(t, stato.catAttiva);
+    $("nome-mano").value = "";
+    cambiato();
+  };
+  $("nome-mano").onkeydown = function (e) { if (e.key === "Enter") $("btn-nome-mano").click(); };
+
+  function disegnaMarcati() {
+    var box = svuota($("lista-marcati"));
+    $("tit-marcati").textContent = "Marcati (" + stato.marcati.size + ")";
+    stato.categorie.forEach(function (c) {
+      var voci = [];
+      stato.marcati.forEach(function (m) { if (m.cat === c.id) voci.push(m); });
+      if (!voci.length) return;
+      voci.sort(function (a, b) { return a.testo.localeCompare(b.testo, "it"); });
+      var g = el("div", { classe: "gruppo" }, [el("b", { testo: c.nome + ": " })]);
+      voci.forEach(function (m) {
+        var x = el("button", { "aria-label": "Togli " + m.testo, testo: "×" });
+        x.onclick = function () { smarca(m.testo); cambiato(); };
+        var v = el("span", { classe: "voce" }, [m.testo, x]);
+        stileCat(v, c);
+        g.appendChild(v);
+      });
+      box.appendChild(g);
+    });
+    if (!stato.marcati.size) box.appendChild(el("p", { classe: "nota", testo: "Nessun nome marcato." }));
+  }
+
+  // ---------------------------------------------------------------- anonimizzazione (in memoria)
+  function config() {
+    var valori = [];
+    stato.marcati.forEach(function (m) { valori.push({ testo: m.testo, categoria: m.cat }); });
+    return { fogli: {}, termini: "", valori: valori, ovunque: true, rinominaFogli: $("opt-fogli").checked,
+      regole: { iban: $("opt-iban").checked, cf: $("opt-cf").checked, piva: $("opt-piva").checked,
+        email: $("opt-email").checked, tel: $("opt-tel").checked } };
+  }
+  function calcola() {
+    if (!stato.esito) stato.esito = A.anonimizza(stato.lettura, config(), stato.corrAnon);
+    return stato.esito;
+  }
+  ["opt-iban", "opt-cf", "opt-piva", "opt-email", "opt-tel", "opt-fogli"].forEach(function (id) {
+    $(id).onchange = cambiato;
+  });
+
+  // Possibili nomi rimasti: testi con forma di nome non marcati (e non tolti a mano), e frasi del file anonimo con
+  // parole maiuscole all'interno.
+  function possibiliNomi() {
+    var es = calcola(), out = [];
+    stato.gialliOrig = new Set();
+    stato.gialliUscita = new Set();
+    stato.testi.forEach(function (t) {
+      var k = A.norm(t.testo);
+      if (!t.proposto || stato.marcati.has(k) || stato.esclusi.has(k)) return;
+      // contiene un nome marcato («Rossi» in «Mario Rossi»): conta solo se, tolti i codici, resta una parola maiuscola
+      var resto = es.trasforma.testo(t.testo).replace(/\b[A-Z][A-Z0-9_]*_\d{3,}\b/g, " ");
+      if (!/\p{Lu}\p{Ll}/u.test(resto)) return;
+      stato.gialliOrig.add(k);
+      out.push(t.testo);
+    });
+    es.frammenti.forEach(function (f) {
+      if (stato.esclusi.has(A.norm(f.parola))) return;
+      if (f.dove === "cella") stato.gialliUscita.add(f.testo);
+      out.push("«" + f.parola + "» compare da solo in: " + f.testo + (f.dove === "cella" ? "" : " (" + f.dove + ")"));
+    });
+    es.resti.forEach(function (r) {
+      if (!r.nome || stato.esclusi.has(A.norm(r.testo)) || stato.gialliUscita.has(r.testo)) return;
+      stato.gialliUscita.add(r.testo);
+      out.push(r.testo);
+    });
+    return out;
+  }
+
+  // ---------------------------------------------------------------- griglia
+  function righeDaMostrare(righe) {
+    var q = stato.cerca.trim().toLowerCase(), idx = [];
+    for (var r = 0; r < righe.length; r++) {
+      if (q && !(righe[r] || []).some(function (v) { return mostra(v).toLowerCase().indexOf(q) >= 0; })) continue;
+      idx.push(r);
+    }
+    return idx;
+  }
+
+  function disegnaGriglia() {
+    annullaTrascina();   // un trascinamento a meta' non deve finire su una griglia diversa
+    var f = stato.lettura.fogli[stato.foglio];
+    var tab = svuota($("griglia"));
+    stato.celle = new Map();   // "r,c" -> cella, per evidenziare il trascinamento senza cercarla nella pagina
+    var gialli = stato.mostraGialli ? calcola() : null;
+    tab.className = "griglia" + (stato.vista === "claude" ? " claude" : "");
+    tab.style.setProperty("--zoom", stato.zoom + "px");
+    var uscita = stato.vista === "claude" ? calcola().righe[stato.foglio] : null;
+    var righe = f.righe;
+    var colonneTutte = righe.reduce(function (m, r) { return Math.max(m, r ? r.length : 0); }, 0);
+    var nCol = Math.min(colonneTutte, MAX_COLONNE);
+    var idx = righeDaMostrare(uscita || righe);
+    stato.righeMostrate = idx.slice(0, MAX_RIGHE);
+    var cerca = stato.vista === "orig" ? ricerca() : null;
+    var hIntest = A.rigaIntestazione(f);
+
+    // da tastiera una sola lettera e un solo numero sono fermate del tasto Tab; tra gli altri ci si muove con le frecce
+    var trh = el("tr", {}, [el("th", { classe: "angolo" })]);
+    for (var c = 0; c < nCol; c++) {
+      trh.appendChild(el("th", { "data-col": String(c), tabindex: c === 0 ? "0" : "-1",
+        title: "Marca tutta la colonna (da tastiera: frecce per spostarsi, Invio per marcare)", testo: XLSX.utils.encode_col(c + f.origine.c) }));
+    }
+    tab.appendChild(el("thead", {}, [trh]));
+    var tb = el("tbody");
+    idx.slice(0, MAX_RIGHE).forEach(function (r, i) {
+      var th = el("th", { "data-row": String(r), tabindex: i === 0 ? "0" : "-1", testo: String(r + 1 + f.origine.r),
+        title: r === hIntest ? "Riga d'intestazione: il clic sulla lettera della colonna la salta"
+          : "Marca tutta la riga (da tastiera: frecce per spostarsi, Invio per marcare)" });
+      if (r === hIntest) th.classList.add("intest");
+      var tr = el("tr", {}, [th]);
+      for (var c = 0; c < nCol; c++) {
+        var v = (righe[r] || [])[c], u = uscita ? (uscita[r] || [])[c] : undefined;
+        var td = el("td", { "data-r": String(r), "data-c": String(c) });
+        var mostrato = uscita ? u : v;
+        if (typeof mostrato === "number" || mostrato instanceof Date) td.classList.add("n");
+        if (stato.vista === "orig") {
+          if (eTesto(v)) {
+            td.classList.add("t");
+            var k = A.norm(v.trim()), m = stato.marcati.get(k);
+            if (m) {
+              var cat = categoria(m.cat) || aggiungiCategoria(m.cat);
+              td.classList.add("m");
+              stileCat(td, cat);
+              td.appendChild(sigla(cat));
+            } else if (cerca) {
+              cerca.re.lastIndex = 0;
+              var trovato = cerca.re.exec(v);
+              if (trovato) {
+                var mc = stato.marcati.get(A.norm(trovato[0]));
+                if (mc) { td.classList.add("p"); stileCat(td, categoria(mc.cat), true); td.style.background = ""; }
+              }
+            }
+            if (stato.mostraGialli && stato.gialliOrig.has(k)) td.classList.add("g");
+          }
+          if (gialli && typeof v === "string") {
+            var uu = (gialli.righe[stato.foglio][r] || [])[c];
+            if (typeof uu === "string" && stato.gialliUscita.has(uu.trim())) td.classList.add("g");
+          }
+        } else {
+          if (v !== u && !(v instanceof Date)) td.classList.add("c");
+          if (typeof u === "string" && stato.gialliUscita.has(u.trim())) td.classList.add("g");
+        }
+        td.appendChild(document.createTextNode(mostra(mostrato)));
+        stato.celle.set(r + "," + c, td);
+        tr.appendChild(td);
+      }
+      tb.appendChild(tr);
+    });
+    tab.appendChild(tb);
+    var info = idx.length > MAX_RIGHE ? "Mostrate le prime " + MAX_RIGHE + " righe di " + idx.length + ": usa «Cerca» per vedere le altre. Le marcature valgono comunque per tutto il file."
+      : idx.length + (stato.cerca ? " righe trovate." : " righe.");
+    if (colonneTutte > MAX_COLONNE) info += " Mostrate le prime " + MAX_COLONNE + " colonne di " + colonneTutte +
+      ": le altre si controllano con «Cerca» o nell'elenco «Testi rimasti in chiaro» dopo l'anonimizzazione.";
+    if (stato.vista === "claude") info += " Vista «Come lo vedrà Claude»: in verde le celle cambiate. Per marcare torna su «Originale».";
+    $("info-griglia").textContent = info;
+  }
+
+  function clickIntestazione(t) {
+    var th = t.closest("th[data-col]");
+    if (th) { clickColonna(+th.getAttribute("data-col")); return true; }
+    var tr = t.closest("th[data-row]");
+    if (tr) { clickRiga(+tr.getAttribute("data-row")); return true; }
+    return false;
+  }
+  $("griglia").onclick = function (e) { clickIntestazione(e.target); };
+  // da tastiera: Tab porta sulla prima lettera e sul primo numero, le frecce si spostano tra lettere o tra numeri,
+  // Invio o spazio marcano come il clic (poi il fuoco torna li')
+  function spostaFuoco(da, a) {
+    if (!a) return;
+    da.setAttribute("tabindex", "-1");
+    a.setAttribute("tabindex", "0");
+    a.focus();
+  }
+  $("griglia").onkeydown = function (e) {
+    var t = e.target, col = t.getAttribute("data-col"), riga = t.getAttribute("data-row");
+    if (col == null && riga == null) return;
+    var passi = col != null ? { ArrowLeft: "previousElementSibling", ArrowRight: "nextElementSibling" }
+      : { ArrowUp: "previousElementSibling", ArrowDown: "nextElementSibling" };
+    if (passi[e.key]) {
+      e.preventDefault();
+      if (col != null) { var vicino = t[passi[e.key]]; spostaFuoco(t, vicino && vicino.hasAttribute("data-col") ? vicino : null); }
+      else { var tr = t.parentNode[passi[e.key]]; spostaFuoco(t, tr ? tr.querySelector("th[data-row]") : null); }
+      return;
+    }
+    if (e.key !== "Enter" && e.key !== " ") return;
+    var sel = col != null ? "th[data-col=\"" + col + "\"]" : "th[data-row=\"" + riga + "\"]";
+    if (clickIntestazione(t)) {
+      e.preventDefault();
+      var di = $("griglia").querySelector(sel);
+      if (di) { $("griglia").querySelectorAll(col != null ? "th[data-col]" : "th[data-row]").forEach(function (x) { x.setAttribute("tabindex", "-1"); }); di.setAttribute("tabindex", "0"); di.focus(); }
+    }
+  };
+
+  // Celle: premuto e rilasciato sulla stessa cella è un clic; trascinando di almeno qualche pixel e su un'altra
+  // cella si marca il rettangolo (un mouse che trema durante un clic non diventa un trascinamento).
+  var trascina = null, SOGLIA_PX = 8;
+  function cellaDa(e) {
+    var td = e.target.closest && e.target.closest("td[data-r]");
+    return td ? { r: +td.getAttribute("data-r"), c: +td.getAttribute("data-c") } : null;
+  }
+  function annullaTrascina() {
+    if (!trascina) return;
+    trascina = null;
+    $("griglia").classList.remove("trascina");
+    evidenzia();
+  }
+  var selezionate = [];
+  function evidenzia() {
+    selezionate.forEach(function (td) { td.classList.remove("sel"); });
+    selezionate = [];
+    if (!trascina || !trascina.fine || !stato.celle) return;
+    var ca = Math.min(trascina.inizio.c, trascina.fine.c), cb = Math.max(trascina.inizio.c, trascina.fine.c);
+    righeArea(trascina.inizio.r, trascina.fine.r).forEach(function (r) {
+      for (var c = ca; c <= cb; c++) {
+        var td = stato.celle.get(r + "," + c);
+        if (td) { td.classList.add("sel"); selezionate.push(td); }
+      }
+    });
+  }
+  $("griglia").onmousedown = function (e) {
+    if (e.button !== 0 || stato.vista !== "orig") return;
+    var p = cellaDa(e);
+    if (!p) return;
+    e.preventDefault();
+    trascina = { inizio: p, fine: p, x: e.clientX, y: e.clientY, lontano: false };
+    $("griglia").classList.add("trascina");
+    evidenzia();
+  };
+  $("griglia").onmouseover = function (e) {
+    if (!trascina) return;
+    // pulsante gia' rilasciato fuori dalla finestra: il trascinamento e' finito senza mouseup
+    if (!(e.buttons & 1)) { annullaTrascina(); return; }
+    if (Math.abs(e.clientX - trascina.x) + Math.abs(e.clientY - trascina.y) >= SOGLIA_PX) trascina.lontano = true;
+    var p = cellaDa(e);
+    if (p && (p.r !== trascina.fine.r || p.c !== trascina.fine.c)) { trascina.fine = p; evidenzia(); }
+  };
+  document.addEventListener("mouseup", function (e) {
+    if (!trascina) return;
+    var t = trascina;
+    annullaTrascina();
+    if (e.button !== 0) return;
+    var stessa = t.inizio.r === t.fine.r && t.inizio.c === t.fine.c;
+    if (stessa || !t.lontano) clickCella(t.inizio.r, t.inizio.c);
+    else clickArea(t.inizio.r, t.inizio.c, t.fine.r, t.fine.c);
+  });
+  window.addEventListener("blur", annullaTrascina);
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") annullaTrascina(); });
+
+  function disegnaSchedeFogli() {
+    var box = svuota($("schede-fogli"));
+    if (stato.lettura.fogli.length < 2) return;
+    var es = stato.mostraGialli ? calcola() : null;
+    stato.lettura.fogli.forEach(function (f, i) {
+      // dopo l'avviso: quante celle da controllare ci sono in ogni foglio (anche in quelli che non si stanno guardando)
+      var n = 0;
+      if (es) f.righe.forEach(function (riga, r) {
+        (riga || []).forEach(function (v, c) {
+          var u = (es.righe[i][r] || [])[c];
+          if ((typeof v === "string" && stato.gialliOrig.has(A.norm(v.trim()))) || (typeof u === "string" && stato.gialliUscita.has(u.trim()))) n++;
+        });
+      });
+      var b = el("button", { "aria-selected": String(i === stato.foglio),
+        testo: f.nome + (f.nascosto ? " (nascosto)" : "") + (n ? " · " + n + " da controllare" : "") });
+      b.onclick = function () { stato.foglio = i; ridisegna(); };
+      box.appendChild(b);
+    });
+  }
+
+  function impostaVista(v) {
+    stato.vista = v;
+    $("vista-orig").setAttribute("aria-pressed", String(v === "orig"));
+    $("vista-claude").setAttribute("aria-pressed", String(v === "claude"));
+    ridisegna();
+  }
+  $("vista-orig").onclick = function () { impostaVista("orig"); };
+  $("vista-claude").onclick = function () { impostaVista("claude"); };
+  $("zoom-piu").onclick = function () { stato.zoom = Math.min(28, stato.zoom + 2); disegnaGriglia(); };
+  $("zoom-meno").onclick = function () { stato.zoom = Math.max(12, stato.zoom - 2); disegnaGriglia(); };
+  $("cerca").oninput = function () { stato.cerca = this.value; disegnaGriglia(); };
+
+  function ridisegna() {
+    if (!stato.lettura) return;
+    disegnaSchedeFogli();
+    disegnaCategorie();
+    disegnaGriglia();
+    disegnaFuori();
+    disegnaMarcati();
+  }
+
+  // Testi fuori dalle celle: originale o, nella vista «Come lo vedrà Claude», con i codici
+  function disegnaFuori() {
+    var extra = stato.lettura.extra || [], box = svuota($("lista-fuori"));
+    $("det-fuori").hidden = !extra.length;
+    if (!extra.length) return;
+    $("tit-fuori").textContent = "Testi fuori dalle celle (" + extra.length + ")";
+    var es = stato.vista === "claude" || stato.mostraGialli ? calcola() : null, gialli = 0;
+    extra.slice(0, 500).forEach(function (x, i) {
+      var anon = es ? es.fuori[i].dopo : null, t = stato.vista === "claude" ? anon : x.testo;
+      var d = el("div", {}, [el("span", { classe: "dove", testo: x.dove }), t]);
+      if (stato.vista === "claude" && anon !== x.testo) d.classList.add("cambiato");
+      if (stato.mostraGialli && (stato.gialliOrig.has(A.norm(x.testo)) || stato.gialliUscita.has(anon.trim()) ||
+          es.frammenti.some(function (f) { return f.dove === x.dove && f.testo === anon.trim(); }))) { d.classList.add("g"); gialli++; }
+      d.onclick = function () { $("nome-mano").value = x.testo; $("nome-mano").focus(); $("nome-mano").scrollIntoView({ block: "center" }); };
+      box.appendChild(d);
+    });
+    if (gialli) { $("tit-fuori").textContent += " · " + gialli + " da controllare"; $("det-fuori").open = true; }
+  }
+
+  // ---------------------------------------------------------------- caricamento
+  var zona = $("zona-excel");
+  zona.onclick = function () { $("file-excel").click(); };
+  zona.onkeydown = function (e) { if (e.key === "Enter" || e.key === " ") $("file-excel").click(); };
+  // Il file trascinato si accetta ovunque nella scheda 1: altrimenti il browser lo apre al posto della pagina.
+  // Sopra un pulsante «Scegli file» (corrispondenze, file di Claude) decide il pulsante, come senza questa pagina.
+  // Il riferimento al file va preso subito: dopo l'evento il browser svuota dataTransfer.
+  function suPulsanteFile(e) { return e.target.closest && e.target.closest("input[type=file]"); }
+  // solo i file: un testo trascinato in una casella si comporta come sempre
+  function sonoFile(e) { return e.dataTransfer && Array.prototype.indexOf.call(e.dataTransfer.types || [], "Files") >= 0; }
+  document.addEventListener("dragover", function (e) {
+    if (suPulsanteFile(e) || !sonoFile(e)) return;
+    e.preventDefault();
+    if ($("pannello-rip").hidden) zona.classList.add("sopra");
+  });
+  document.addEventListener("dragleave", function (e) { if (!e.relatedTarget) zona.classList.remove("sopra"); });
+  document.addEventListener("drop", function (e) {
+    if (suPulsanteFile(e) || !sonoFile(e)) return;
+    e.preventDefault();
+    zona.classList.remove("sopra");
+    var f = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0];
+    if (!f) return;
+    // con la finestra di avviso aperta non si cambia file: prima si chiude l'avviso
+    if (!$("velo").hidden) return;
+    if (!$("pannello-rip").hidden) {
+      svuota($("esito-rip-excel")).appendChild(avviso("att", "Qui il file va lasciato sul pulsante del passo giusto: 1 per le corrispondenze, 3 per l'Excel di Claude."));
+      return;
+    }
+    svuota($("info-file")).appendChild(avviso("ok", "Lettura di " + f.name + "…"));
+    leggiFile(f, function (b) { caricaBuffer(b, f.name); });
+  });
+  $("file-excel").onchange = function () {
+    var f = this.files[0];
+    this.value = "";   // cosi' si puo' scegliere di nuovo lo stesso file
+    if (f) leggiFile(f, function (b) { caricaBuffer(b, f.name); });
+  };
+
+  function caricaBuffer(buf, nome) {
+    var info = svuota($("info-file"));
+    $("carta-esito").hidden = true;
+    try {
+      stato.lettura = A.leggi(buf);
+    } catch (err) {
+      stato.lettura = null;
+      $("carta-marca").hidden = true;
+      info.appendChild(avviso("err", /password|encrypt|ecma-376/i.test(String(err))
+        ? "Il file è protetto da password. Aprilo in Excel, togli la password e salva una copia."
+        : "Non riesco a leggere il file: " + err.message));
+      return;
+    }
+    // da qui in poi il file e' nuovo: niente di calcolato sul file precedente deve restare valido
+    invalida();
+    $("velo").hidden = true;
+    var L = stato.lettura;
+    stato.buffer = buf;
+    stato.nomeFile = nome;
+    stato.ultimo = null;
+    info.appendChild(avviso("ok", "Letto: " + nome + " · " + L.fogli.length + (L.fogli.length === 1 ? " foglio" : " fogli")));
+    var nasc = L.fogli.filter(function (f) { return f.nascosto; }).length;
+    if (nasc) info.appendChild(avviso("att", nasc + " fogli nascosti: vengono anonimizzati anche loro, li trovi tra le schede dei fogli."));
+    stato.marcati = new Map();
+    stato.esclusi = new Set();
+    stato.foglio = 0;
+    stato.cerca = "";
+    $("cerca").value = "";
+    stato.mostraGialli = false;
+    stato.testi = A.testiDistinti(L);
+    stato.testi.forEach(function (t) { if (t.proposto) marca(t.testo, "PERSONA"); });
+    // gli autori dei commenti sono persone (colleghi): Excel scrive il loro nome anche in testa a ogni commento
+    (L.autori || []).forEach(function (a) { if (a.length >= 3) marca(a, "PERSONA"); });
+    applicaCorrispondenze();
+    stato.catAttiva = "PERSONA";
+    $("carta-marca").hidden = false;
+    impostaVista("orig");
+    cambiato();
+  }
+
+  function applicaCorrispondenze() {
+    if (!stato.lettura || !stato.corrAnon) return 0;
+    var prop = A.proposteDaCorrispondenze(stato.lettura, stato.corrAnon);
+    prop.forEach(function (p) { aggiungiCategoria(p.categoria); marca(p.testo, A.prefissoDa(p.categoria, "ALTRO")); });
+    return prop.length;
+  }
+
+  $("file-corr-anon").onchange = function () {
+    var f = this.files[0], info = svuota($("info-corr-anon"));
+    if (!f) { stato.corrAnon = null; cambiato(); return; }
+    leggiFile(f, function (buf) {
+      try {
+        stato.corrAnon = A.leggiCorrispondenze(buf);
+        var n = applicaCorrispondenze();
+        info.appendChild(avviso("ok", stato.corrAnon.length + " corrispondenze caricate" +
+          (stato.lettura ? "; " + n + " nomi già noti marcati nel file." : ".")));
+        cambiato();
+      } catch (err) { stato.corrAnon = null; info.appendChild(avviso("err", "Non è un file di corrispondenze valido.")); }
+    });
+  };
+
+  // ---------------------------------------------------------------- scarica
+  $("btn-scarica").onclick = function () {
+    if (!stato.lettura) return;
+    var dubbi = possibiliNomi();
+    if (dubbi.length) {
+      var ul = svuota($("lista-velo"));
+      dubbi.slice(0, 15).forEach(function (t) { ul.appendChild(el("li", { testo: t })); });
+      if (dubbi.length > 15) ul.appendChild(el("li", { testo: "… e altri " + (dubbi.length - 15) }));
+      stato.mostraGialli = true;
+      $("velo").hidden = false;
+      $("btn-controllo").focus();
+      return;
+    }
+    scaricaTutto();
+  };
+  $("btn-controllo").onclick = function () {
+    $("velo").hidden = true;
+    impostaVista("orig");
+    var g = document.querySelector("#griglia td.g");
+    if (g) g.scrollIntoView({ block: "center" });
+  };
+  // «Scarica comunque» vale solo per questa volta: i testi segnalati non diventano «non nomi», e se si scarica di
+  // nuovo l'avviso li ripropone (anche quelli oltre i primi 15, che l'utente non ha visto).
+  $("btn-comunque").onclick = function () {
+    $("velo").hidden = true;
+    scaricaTutto();
+  };
+  document.addEventListener("keydown", function (e) {
+    if ($("velo").hidden) return;
+    if (e.key === "Escape") { $("btn-controllo").click(); return; }
+    // il fuoco resta dentro la finestra: Tab gira tra i due pulsanti
+    if (e.key === "Tab") {
+      var a = $("btn-controllo"), b = $("btn-comunque");
+      e.preventDefault();
+      (document.activeElement === a ? b : a).focus();
+    }
+  });
+
+  // Parti del pacchetto .xlsx dette in parole
+  function parteInParole(p) {
+    var m;
+    if (p === "xl/sharedStrings.xml") return "testi delle celle";
+    if ((m = /^xl\/worksheets\/sheet(\d+)\.xml$/.exec(p))) return "foglio " + m[1];
+    if (/comments|threadedComments|persons/.test(p)) return "commenti";
+    if (/charts/.test(p)) return "grafici";
+    if (/pivot/.test(p)) return "tabelle pivot";
+    if (/tables/.test(p)) return "tabelle";
+    if (/drawings/.test(p)) return "disegni e caselle di testo";
+    if (/^docProps/.test(p)) return "proprietà del file";
+    if (p === "xl/workbook.xml") return "nomi dei fogli e nomi definiti";
+    if (p === "xl/styles.xml") return "formati numerici e stili";
+    if (/_rels/.test(p)) return "collegamenti";
+    if (/^xl\/model\//.test(p)) return "modello dati di Power Pivot";
+    if (/^xl\/embeddings\//.test(p)) return "oggetti incorporati";
+    if (/^customXml\//.test(p)) return "query di Power Query";
+    if (/activeX|ctrlProps/.test(p)) return "controlli dei moduli";
+    return p;
+  }
+  function problemiInParole(problemi) {
+    var visti = [];
+    problemi.forEach(function (p) {
+      var t = parteInParole(p.parte) + (p.tipo === "percorso" ? " (percorso con il nome dell'utente)" : p.tipo === "illeggibile" ? " (non si può controllare)" : "");
+      if (visti.indexOf(t) < 0) visti.push(t);
+    });
+    return visti.join(", ");
+  }
+
+  // Prepara l'Excel anonimo: prima la versione che tiene la formattazione; se non e' possibile, o se non supera
+  // il controllo finale, quella con i soli valori, ma solo se supera lei il controllo. Altrimenti niente file.
+  function preparaAnonimo() {
+    var es = calcola(), note = [], out = null, formattato = false;
+    var fmt = A.eZip(stato.buffer) ? A.anonimizzaXlsx(stato.buffer, es) : { buffer: null, motivo: "formato" };
+    if (fmt.buffer && fmt.controllo.ok) {
+      out = fmt.buffer;
+      formattato = true;
+      fmt.avvisi.forEach(function (a) { note.push(["att", a]); });
+    } else {
+      if (fmt.buffer) note.push(["att", "La versione con la formattazione non ha superato il controllo finale (residui in: " +
+        problemiInParole(fmt.controllo.problemi) + "): ti do quella con i soli valori."]);
+      else if (fmt.motivo === "doppioni") note.push(["att", "Due modi di scrivere lo stesso nome (per esempio con uno spazio in più) " +
+        "sono diventati lo stesso codice dentro una tabella pivot o tra le colonne di una tabella (" +
+        problemiInParole(fmt.parti.map(function (p) { return { parte: p }; })) + "): Excel non aprirebbe il file. " +
+        "Ti do la versione con i soli valori. Per tenere la formattazione, correggi la grafia nell'originale e rifai."]);
+      else if (fmt.motivo === "parti") note.push(["att", "Il file contiene parti che non so leggere né ripulire (" +
+        problemiInParole(fmt.parti.map(function (p) { return { parte: p }; })) + "): dentro può esserci una copia dei dati. " +
+        "Ti do la versione con i soli valori. Per tenere la formattazione, togli quelle parti in Excel e rifai."]);
+      else note.push(["att", "Questo formato non permette di tenere la formattazione. Per tenerla, apri il file in Excel e salvalo come .xlsx, poi rifai."]);
+      var valori = new Uint8Array(A.scrivi(es.wb)), c = A.controllaPacchetto(valori, es.mappa);
+      if (c.ok) out = valori;
+      else note.push(["err", "Il controllo finale ha trovato ancora valori veri in: " + problemiInParole(c.problemi) +
+        ". Il file NON è stato scaricato: marca i nomi che restano e riprova."]);
+    }
+    return { es: es, buffer: out, formattato: formattato, note: note };
+  }
+
+  function scaricaTutto() {
+    var p = preparaAnonimo();
+    stato.ultimo = p.buffer ? p : null;
+    if (p.buffer) {
+      var quando = oggi(), corr = "corrispondenze_NON_CONDIVIDERE_" + quando + ".xlsx";
+      scarica(p.buffer, "anonimo_" + quando + ".xlsx");
+      setTimeout(function () { scarica(A.fileCorrispondenze(p.es.mappa), corr); }, 600);
+      // Nella scheda 2 vanno le corrispondenze di questo file, salvo se l'utente ne ha caricate altre a mano (per
+      // esempio quelle di un file precedente, per la risposta di Claude su quello): allora restano, e lo si dice.
+      // Codici uguali (PERSONA_001) in file diversi indicano persone diverse: usare quelle sbagliate dà nomi sbagliati.
+      if (!stato.corrRipDaFile) {
+        usaCorrRip(A.mappaRipristino(p.es.mappa.righe()), "di «" + (stato.nomeFile || "file") + "», anonimizzato alle " +
+          quando.slice(9, 11) + ":" + quando.slice(11, 13) + ":" + quando.slice(13, 15) + " (" + corr + ")", false);
+      } else {
+        p.note.push(["att", "Nella scheda 2 restano le corrispondenze caricate a mano, " + stato.corrRipNome +
+          ". Per rimettere i nomi nella risposta di Claude su questo file, lì carica «" + corr + "»."]);
+      }
+    }
+    disegnaEsito(p.es, p);
+  }
+  // Corrispondenze per la scheda 2, con il file a cui appartengono scritto in chiaro
+  function usaCorrRip(mappa, nome, daFile) {
+    stato.corrRip = mappa;
+    stato.corrRipNome = nome;
+    stato.corrRipDaFile = daFile;
+    svuota($("esito-rip-excel"));
+    svuota($("esito-rip-testo"));
+    $("testo-ripristinato").hidden = $("btn-copia").hidden = true;
+    svuota($("info-corr-rip")).appendChild(avviso("ok", "In uso: " + mappa.size + " corrispondenze " + nome + "." +
+      (daFile ? "" : " Se chiudi la pagina, ricarica il file delle corrispondenze.")));
+  }
+
+  function disegnaEsito(es, p) {
+    var R = es.report, e = svuota($("esito"));
+    var regole = Object.keys(R.regole).filter(function (k) { return R.regole[k]; })
+      .map(function (k) { return R.regole[k] + " " + { iban: "IBAN", cf: "codici fiscali", piva: "partite IVA", email: "email", tel: "telefoni" }[k]; });
+    if (p.buffer) {
+      e.appendChild(avviso("ok", (p.formattato
+        ? "Formattazione conservata: colori, bordi, formati, formule, grafici e pivot restano come nell'originale."
+        : "L'Excel anonimo contiene solo i valori: niente formule, commenti, formattazione.") +
+        " Nella cartella dei download dovresti trovare due file, l'Excel anonimo e le corrispondenze: se il browser ne ha bloccato uno, usa i pulsanti in fondo."));
+      e.appendChild(avviso("ok", "Controllo finale superato: nessuno dei nomi marcati compare nel file scaricato, in nessuna sua parte."));
+    }
+    p.note.forEach(function (n) { e.appendChild(avviso(n[0], n[1])); });
+    $("btn-riscarica-anon").disabled = $("btn-riscarica-corr").disabled = !p.buffer;
+    e.appendChild(el("ul", { classe: "numeri" }, [
+      el("li", { testo: stato.marcati.size + " nomi marcati, sostituiti " + R.occorrenzeTesto + " volte" }),
+      el("li", { testo: regole.length ? "Regole automatiche: " + regole.join(", ") : "Nessun IBAN, codice fiscale, partita IVA, email o telefono trovato" }),
+      el("li", { testo: R.nuoviCodici + " codici nuovi" + (stato.corrAnon ? " (gli altri ripresi dalle corrispondenze caricate)" : "") })]));
+    var tolti = [];
+    if (p.buffer && !p.formattato) {
+      R.fogli.forEach(function (f) {
+        if (f.commenti) tolti.push(f.commenti + " commenti tolti in «" + f.nome + "»");
+        if (f.collegamenti) tolti.push(f.collegamenti + " collegamenti tolti in «" + f.nome + "»");
+        if (f.formule) tolti.push(f.formule + " formule trasformate in valori in «" + f.nome + "»");
+      });
+      if (R.nomiDefiniti) tolti.push(R.nomiDefiniti + " nomi definiti (intervalli con nome) tolti");
+    }
+    if (tolti.length) e.appendChild(avviso("att", tolti.join(" · ")));
+    var box = svuota($("resti"));
+    if (!es.resti.length) box.appendChild(el("div", { testo: "Nessun testo rimasto in chiaro." }));
+    es.resti.slice(0, 500).forEach(function (r) {
+      var d = el("div", {}, [r.dove ? el("span", { classe: "dove", testo: r.dove }) : null, r.testo + (r.volte > 1 ? "  (×" + r.volte + ")" : "")]);
+      if (r.nome) d.appendChild(el("span", { classe: "etichetta", testo: "possibile nome" }));
+      d.onclick = function () { $("nome-mano").value = r.testo; $("nome-mano").focus(); $("nome-mano").scrollIntoView({ block: "center" }); };
+      box.appendChild(d);
+    });
+    $("esito-superato").hidden = true;
+    $("tit-esito").textContent = p.buffer ? "Fatto" : "Non scaricato";
+    $("carta-esito").hidden = false;
+    $("carta-esito").scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+  $("btn-riscarica-anon").onclick = function () { if (stato.ultimo && stato.ultimo.buffer) scarica(stato.ultimo.buffer, "anonimo_" + oggi() + ".xlsx"); };
+  $("btn-riscarica-corr").onclick = function () { if (stato.ultimo && stato.ultimo.buffer) scarica(A.fileCorrispondenze(stato.ultimo.es.mappa), "corrispondenze_NON_CONDIVIDERE_" + oggi() + ".xlsx"); };
+
+  // ---------------------------------------------------------------- ripristino
+  $("file-corr-rip").onchange = function () {
+    var f = this.files[0], info = svuota($("info-corr-rip"));
+    svuota($("esito-rip-excel"));
+    svuota($("esito-rip-testo"));
+    $("testo-ripristinato").hidden = $("btn-copia").hidden = true;
+    if (!f) { stato.corrRip = null; stato.corrRipDaFile = false; return; }
+    leggiFile(f, function (buf) {
+      try { usaCorrRip(A.mappaRipristino(A.leggiCorrispondenze(buf)), "del file «" + f.name + "»", true); }
+      catch (err) { stato.corrRip = null; stato.corrRipDaFile = false; info.appendChild(avviso("err", err.message || "Non è un file di corrispondenze valido.")); }
+    });
+  };
+  function serveCorr(dove) {
+    if (stato.corrRip) return true;
+    svuota(dove).appendChild(avviso("err", "Prima carica il file delle corrispondenze (passo 1)."));
+    return false;
+  }
+  function avvisoSconosciuti(dove, r) {
+    dove.appendChild(avviso("ok", r.trovati + " codici sostituiti con i nomi veri, usando le corrispondenze " + stato.corrRipNome +
+      ". Se la risposta di Claude riguarda un altro file, carica le sue corrispondenze al passo 1."));
+    if (r.sconosciuti.length) dove.appendChild(avviso("att", "Codici non trovati nelle corrispondenze (forse di un altro file): " + r.sconosciuti.join(", ")));
+    if (r.storpiati && r.storpiati.length) dove.appendChild(avviso("att", "Sembrano codici scritti in un altro modo da Claude, e NON sono stati rimessi: " +
+      r.storpiati.slice(0, 20).join(", ") + (r.storpiati.length > 20 ? "…" : "") + ". Controllali e correggili a mano (il codice giusto è come PERSONA_001)."));
+  }
+  $("btn-rip-testo").onclick = function () {
+    var dove = svuota($("esito-rip-testo"));
+    if (!serveCorr(dove)) return;
+    var r = A.ripristinaTesto($("testo-rip").value, stato.corrRip);
+    avvisoSconosciuti(dove, r);
+    $("testo-ripristinato").value = r.testo;
+    $("testo-ripristinato").hidden = $("btn-copia").hidden = false;
+  };
+  $("btn-copia").onclick = function () {
+    var t = $("testo-ripristinato");
+    t.select();
+    if (navigator.clipboard) navigator.clipboard.writeText(t.value); else document.execCommand("copy");
+  };
+  $("file-rip-excel").onchange = function () {
+    var f = this.files[0], dove = svuota($("esito-rip-excel"));
+    this.value = "";   // cosi' si puo' scegliere di nuovo lo stesso file
+    if (!f || !serveCorr(dove)) return;
+    leggiFile(f, function (buf) {
+      try {
+        var r = A.ripristinaXlsx(buf, stato.corrRip);
+        avvisoSconosciuti(dove, r);
+        dove.appendChild(avviso(r.formattazione ? "ok" : "att", r.formattazione
+          ? "Formattazione conservata."
+          : "Questo formato non permette di tenere la formattazione: il file ripristinato contiene solo i valori."));
+        var b = el("button", { classe: "normale", testo: "Scarica l'Excel con i nomi veri" });
+        b.onclick = function () { scarica(r.buffer, "ripristinato_" + oggi() + ".xlsx"); };
+        dove.appendChild(b);
+      } catch (err) { dove.appendChild(avviso("err", "Non riesco a leggere il file: " + err.message)); }
+    });
+  };
+
+  // per il collaudo automatico
+  window.AnonApp = { caricaBuffer: caricaBuffer, stato: stato, clickCella: clickCella, clickColonna: clickColonna,
+    clickRiga: clickRiga, clickArea: clickArea,
+    calcola: calcola, impostaVista: impostaVista, possibiliNomi: possibiliNomi,
+    scegliCategoria: function (id) { stato.catAttiva = id; disegnaCategorie(); } };
+})();
+</script>
+</body>
+</html>

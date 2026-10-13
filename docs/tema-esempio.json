@@ -1,0 +1,12 @@
+{
+  "logo": "logo-esempio.svg",
+  "logo_alt": "Esempio Srl",
+  "sovratitolo": "Servizi generali · strumenti",
+  "nota": "Strumento interno di Esempio Srl, basato su Maschera (licenza MIT).",
+  "font": "\"Inter\"",
+  "colori": {
+    "chiaro": { "--marchio": "#0b6e4f", "--marchio-2": "#e07a1f", "--accento": "#0b6e4f", "--titoli": "#0b6e4f", "--rosso": "#e07a1f" },
+    "scuro": { "--accento": "#6fd3ad", "--accento-testo": "#0c2a20", "--titoli": "#a6e6cd", "--rosso": "#f0a35e" }
+  },
+  "css": ".passo { border-radius: 8px; }"
+}
