@@ -4,7 +4,7 @@ All notable changes are listed here. The format follows [Keep a Changelog](https
 and versions follow [Semantic Versioning](https://semver.org/).
 Le modifiche importanti sono elencate qui, in inglese.
 
-## [Unreleased]
+## [0.9.2] - 2026-10-13
 
 ### Added
 - ⚠ "Version in development" note in the header: suggestions can be wrong, check the result; link to this
@@ -44,5 +44,6 @@ First public release (beta).
 - Themes for `build.py`: logo, colours, font and texts.
 - Release workflow with SHA-256 checksums and build attestation.
 
+[0.9.2]: https://github.com/alexcard3/maschera-xlsx/releases/tag/v0.9.2
 [0.9.1]: https://github.com/alexcard3/maschera-xlsx/releases/tag/v0.9.1
 [0.9.0]: https://github.com/alexcard3/maschera-xlsx/releases/tag/v0.9.0
